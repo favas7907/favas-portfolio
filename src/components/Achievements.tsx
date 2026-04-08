@@ -1,0 +1,81 @@
+import { motion } from 'motion/react';
+import { ACHIEVEMENTS, CERTIFICATIONS, EXPERIENCE } from '../constants/data';
+import SectionHeading from './SectionHeading';
+import { Award, ExternalLink, Briefcase } from 'lucide-react';
+
+export default function Achievements() {
+  const allItems = [
+    ...EXPERIENCE.map(exp => ({
+      title: exp.role,
+      description: `${exp.company} • ${exp.period}\n${exp.description}`,
+      icon: Briefcase,
+      type: 'Experience',
+      link: undefined
+    })),
+    ...ACHIEVEMENTS.map(a => ({ ...a, type: 'Achievement', link: undefined })),
+    ...CERTIFICATIONS.map(c => ({ 
+      title: c.title, 
+      description: `${c.issuer} • ${c.date}`, 
+      icon: Award, 
+      type: 'Certification',
+      link: c.link 
+    }))
+  ];
+
+  return (
+    <section id="achievements" className="section-padding bg-bg-section/30 relative overflow-hidden">
+      <div className="container-custom relative z-10">
+        <SectionHeading 
+          title="Experience & Achievements" 
+          badge="Milestones"
+          subtitle="A collection of my professional experience, milestones, and certifications."
+        />
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="card-style p-6 flex flex-col group hover:bg-white transition-all duration-300"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:rotate-6 transition-all duration-500 shadow-sm">
+                  <item.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                </div>
+                <span className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-[0.15em] border shadow-sm ${
+                  item.type === 'Achievement' 
+                    ? 'bg-pink-50 text-secondary border-pink-100' 
+                    : item.type === 'Experience'
+                    ? 'bg-blue-50 text-blue-600 border-blue-100'
+                    : 'bg-purple-50 text-primary border-purple-100'
+                }`}>
+                  {item.type}
+                </span>
+              </div>
+              
+              <h3 className="text-lg font-bold text-text-primary mb-2 tracking-tight group-hover:text-primary transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-text-secondary leading-relaxed font-medium text-xs mb-4 flex-grow whitespace-pre-line">
+                {item.description}
+              </p>
+
+              {item.link && (
+                <a 
+                  href={item.link}
+                  className="inline-flex items-center gap-1.5 text-primary font-bold text-[10px] hover:gap-2.5 transition-all group/link"
+                >
+                  View Certificate
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
