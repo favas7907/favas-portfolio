@@ -13,44 +13,36 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center md:text-left"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center md:text-left order-2 md:order-1"
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white border border-purple-100 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm hover:shadow-md transition-all cursor-default">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white border border-purple-100 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm cursor-default">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
             </span>
             <span className="text-text-secondary">Open for Collaboration</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-text-primary mb-6 tracking-tight leading-[1.05]">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-text-primary mb-6 tracking-tight leading-[1.1]">
             I'm <span className="text-gradient">{HERO_CONTENT.name}</span>
           </h1>
           <div className="space-y-4 mb-10">
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-pink-500">
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-text-primary">
               {HERO_CONTENT.role}
             </p>
-            <p className="text-sm sm:text-base md:text-lg font-bold text-text-secondary/80 tracking-wide uppercase">{HERO_CONTENT.specialization}</p>
+            <p className="text-xs sm:text-sm md:text-base font-bold text-text-secondary tracking-[0.2em] uppercase">{HERO_CONTENT.specialization}</p>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-text-secondary mb-12 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
             {HERO_CONTENT.tagline}
           </p>
           
-          <div className="flex flex-wrap justify-center md:justify-start gap-6 mb-12">
-            <a 
-              href="#projects" 
-              className="group relative px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl font-bold uppercase tracking-[0.2em] text-[11px] shadow-xl shadow-primary/20 hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 overflow-hidden"
-            >
-              <span className="relative z-10">{HERO_CONTENT.ctaPrimary}</span>
-              <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-12">
+            <a href="#projects" className="btn-primary">
+              {HERO_CONTENT.ctaPrimary}
+              <ArrowRight className="w-4 h-4" />
             </a>
-            <a 
-              href="/resume.pdf" 
-              className="px-8 py-4 bg-white border border-purple-100 text-text-primary rounded-2xl font-bold uppercase tracking-[0.2em] text-[11px] hover:bg-purple-50 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 shadow-sm"
-              download
-            >
-              <FileText className="w-5 h-5 text-primary" />
+            <a href="/resume.pdf" className="btn-secondary" download>
+              <FileText className="w-4 h-4 text-primary" />
               {HERO_CONTENT.ctaSecondary}
             </a>
           </div>
@@ -60,28 +52,26 @@ export default function Hero() {
               <a 
                 key={social.name} 
                 href={social.href}
-                className="text-text-secondary hover:text-primary transition-all hover:-translate-y-1 duration-300"
+                className="text-text-secondary hover:text-primary transition-all duration-300"
                 aria-label={social.name}
               >
-                <social.icon className="w-6 h-6" />
+                <social.icon className="w-5 h-5" />
               </a>
             ))}
           </div>
         </motion.div>
 
-        <div
-          className="relative flex justify-center md:justify-end"
-        >
-          <div className="relative w-64 h-64 md:w-[400px] md:h-[400px]">
+        <div className="relative flex justify-center md:justify-end order-1 md:order-2">
+          <div className="relative w-64 h-64 md:w-[420px] md:h-[420px]">
             {/* Soft Glow Background */}
-            <div className="absolute inset-0 bg-primary/10 rounded-3xl rotate-6 blur-2xl" />
-            <div className="absolute inset-0 bg-secondary/10 rounded-3xl -rotate-3 blur-2xl" />
+            <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-6 blur-2xl" />
+            <div className="absolute inset-0 bg-secondary/10 rounded-[2rem] -rotate-3 blur-2xl" />
             
-            <div className="relative z-10 w-full h-full p-2 bg-white border border-purple-50 rounded-3xl overflow-hidden shadow-xl">
+            <div className="relative z-10 w-full h-full p-2 bg-white border border-purple-50 rounded-[2rem] overflow-hidden shadow-2xl">
               <img 
                 src={HERO_CONTENT.avatarUrl} 
                 alt={HERO_CONTENT.name}
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-[1.5rem]"
                 loading="eager"
                 referrerPolicy="no-referrer"
               />

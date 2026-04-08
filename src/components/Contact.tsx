@@ -63,177 +63,133 @@ export default function Contact() {
           subtitle="Have a project in mind or just want to say hi? Feel free to reach out!"
         />
         
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-extrabold text-text-primary mb-6 tracking-tight"
-            >
+            <h3 className="text-3xl md:text-5xl font-extrabold text-text-primary mb-8 tracking-tight leading-tight">
               Let's build something <span className="text-gradient">extraordinary</span> together.
-            </motion.h3>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-base text-text-secondary mb-10 leading-relaxed font-medium"
-            >
+            </h3>
+            <p className="text-lg text-text-secondary mb-12 leading-relaxed font-medium">
               Whether you're looking for a full-stack developer, a security consultant, or just want to discuss the latest tech trends, I'm always open to new opportunities and collaborations.
-            </motion.p>
+            </p>
             
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-6 mb-10"
-            >
-              <motion.div variants={itemVariants} className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all duration-500 shadow-sm">
-                  <Mail className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+            <div className="space-y-8 mb-12">
+              <div className="flex items-center gap-5 group">
+                <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-all duration-500 shadow-sm">
+                  <Mail className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-0.5">Email Me</p>
-                  <p className="text-base font-bold text-text-primary group-hover:text-primary transition-colors">{CONTACT_INFO.email}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-1">Email Me</p>
+                  <p className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors">{CONTACT_INFO.email}</p>
                 </div>
-              </motion.div>
+              </div>
               
-              <motion.div variants={itemVariants} className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all duration-500 shadow-sm">
-                  <MapPin className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+              <div className="flex items-center gap-5 group">
+                <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-all duration-500 shadow-sm">
+                  <MapPin className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-0.5">Location</p>
-                  <p className="text-base font-bold text-text-primary group-hover:text-primary transition-colors">San Francisco, CA</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-1">Location</p>
+                  <p className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors">{CONTACT_INFO.location}</p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex gap-3"
-            >
+            <div className="flex gap-4">
               {CONTACT_INFO.socials.map((social) => (
-                <motion.a 
+                <a 
                   key={social.name} 
                   href={social.href}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-11 h-11 bg-purple-50 rounded-xl flex items-center justify-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300"
+                  className="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5" />
-                </motion.a>
+                </a>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full max-w-2xl mx-auto lg:mx-0"
           >
-            <form onSubmit={handleSubmit} className="card-style p-8 relative overflow-hidden">
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="space-y-6 relative z-10"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  <motion.div variants={itemVariants} className="space-y-2">
-                    <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Full Name</label>
+            <form onSubmit={handleSubmit} className="card-style p-8 md:p-10">
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Full Name</label>
                     <input 
                       type="text" 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="John Doe"
-                      className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-3.5 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
+                      className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
                     />
-                  </motion.div>
-                  <motion.div variants={itemVariants} className="space-y-2">
-                    <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Email Address</label>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Email Address</label>
                     <input 
                       type="email" 
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="john@example.com"
-                      className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-3.5 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
+                      className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
                     />
-                  </motion.div>
+                  </div>
                 </div>
                 
-                <motion.div variants={itemVariants} className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Subject</label>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Subject</label>
                   <input 
                     type="text" 
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Project Inquiry"
-                    className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-3.5 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
+                    className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
                   />
-                </motion.div>
+                </div>
                 
-                <motion.div variants={itemVariants} className="space-y-2">
-                  <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Message</label>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Message</label>
                   <textarea 
                     required
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell me about your project..."
-                    className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-3.5 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm resize-none"
+                    className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm resize-none"
                   ></textarea>
-                </motion.div>
+                </div>
                 
-                <motion.button 
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button 
                   type="submit"
                   disabled={status !== 'idle'}
-                  className={`w-full btn-primary py-4 text-[10px] tracking-[0.2em] uppercase transition-all duration-300 ${status === 'success' ? 'bg-green-500 from-green-500 to-green-600' : ''}`}
+                  className={`w-full btn-primary py-4 transition-all duration-300 ${status === 'success' ? 'bg-green-500 from-green-500 to-green-600' : ''}`}
                 >
                   {status === 'idle' && (
                     <>
                       Send Message
-                      <Send className="w-3.5 h-3.5" />
+                      <Send className="w-4 h-4" />
                     </>
                   )}
                   {status === 'sending' && (
-                    <motion.span 
-                      animate={{ opacity: [1, 0.5, 1] }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    >
-                      Sending...
-                    </motion.span>
+                    <span className="animate-pulse">Sending...</span>
                   )}
                   {status === 'success' && (
-                    <motion.span 
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                    >
-                      Message Sent!
-                    </motion.span>
+                    <span>Message Sent!</span>
                   )}
-                </motion.button>
-              </motion.div>
+                </button>
+              </div>
             </form>
           </motion.div>
         </div>

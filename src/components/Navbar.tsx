@@ -47,19 +47,19 @@ export default function Navbar() {
         scrolled ? 'bg-white/90 backdrop-blur-lg border-b border-purple-100/50 py-3 shadow-sm' : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="container-custom px-4 md:px-8 lg:px-16 flex justify-between items-center">
         <a href="#" className="flex items-center gap-3 group" aria-label="Favas M Home">
-          <span className="text-lg font-extrabold text-text-primary tracking-tight group-hover:text-primary transition-colors">Favas M</span>
+          <span className="text-xl font-extrabold text-text-primary tracking-tight group-hover:text-primary transition-colors">Favas M</span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-10">
+          <div className="flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href}
-                className={`text-[11px] font-bold uppercase tracking-[0.15em] transition-all relative group py-2 ${
+                className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-all relative group py-2 ${
                   activeSection === link.href.substring(1) ? 'text-primary' : 'text-text-secondary hover:text-text-primary'
                 }`}
               >
@@ -72,7 +72,7 @@ export default function Navbar() {
           </div>
           <a 
             href="/resume.pdf" 
-            className="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2 rounded-xl text-[11px] font-bold uppercase tracking-[0.15em] hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105 active:scale-95"
+            className="btn-primary !px-6 !py-2.5 !text-[10px]"
             download
           >
             Resume

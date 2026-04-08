@@ -24,24 +24,22 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group bg-white rounded-2xl border border-purple-100/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full overflow-hidden ${
-                project.featured ? 'ring-2 ring-primary/10' : ''
-              }`}
+              className="group card-style flex flex-col h-full overflow-hidden"
             >
               {/* Project Image */}
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {project.featured && (
-                  <div className="absolute top-4 left-4 px-4 py-1.5 bg-primary text-white text-[10px] font-bold rounded-full uppercase tracking-widest shadow-lg z-10">
-                    Featured Project
+                  <div className="absolute top-4 left-4 px-4 py-1.5 bg-primary text-white text-[9px] font-bold rounded-full uppercase tracking-widest shadow-xl z-10">
+                    Featured
                   </div>
                 )}
               </div>
@@ -49,10 +47,10 @@ export default function Projects() {
               {/* Project Content */}
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors tracking-tight">
+                  <h3 className="text-xl font-extrabold text-text-primary group-hover:text-primary transition-colors tracking-tight leading-tight">
                     {project.title}
                   </h3>
-                  <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                  <div className="w-10 h-10 bg-purple-50 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm shrink-0">
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -62,11 +60,11 @@ export default function Projects() {
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2.5 mb-10">
+                <div className="flex flex-wrap gap-2 mb-10">
                   {project.tech.map((t) => (
                     <span 
                       key={t} 
-                      className="text-[10px] font-bold uppercase tracking-widest text-primary bg-purple-50 px-3 py-1.5 rounded-lg border border-purple-100/50 group-hover:border-primary/30 transition-colors"
+                      className="text-[9px] font-bold uppercase tracking-widest text-text-secondary bg-purple-50/50 px-3 py-1.5 rounded-lg border border-purple-100/30"
                     >
                       {t}
                     </span>
@@ -77,17 +75,17 @@ export default function Projects() {
                 <div className="mt-auto pt-6 border-t border-purple-50 flex items-center gap-8">
                   <a 
                     href={project.github} 
-                    className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-widest text-text-secondary hover:text-primary transition-colors group/link"
+                    className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-text-secondary hover:text-primary transition-colors"
                   >
-                    <Github className="w-4.5 h-4.5" />
-                    <span>Source Code</span>
+                    <Github className="w-4 h-4" />
+                    <span>Code</span>
                   </a>
                   <a 
                     href={project.live} 
-                    className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-widest text-text-secondary hover:text-primary transition-colors group/link"
+                    className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-text-secondary hover:text-primary transition-colors"
                   >
-                    <ExternalLink className="w-4.5 h-4.5" />
-                    <span>Live Demo</span>
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Live</span>
                   </a>
                 </div>
               </div>

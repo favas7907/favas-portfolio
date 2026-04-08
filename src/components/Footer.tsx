@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3 group">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 group-hover:scale-110 transition-transform" />
-                <span className="text-text-secondary text-sm font-medium">San Francisco, CA</span>
+                <span className="text-text-secondary text-sm font-medium">{CONTACT_INFO.location}</span>
               </li>
             </ul>
           </div>

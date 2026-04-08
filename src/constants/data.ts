@@ -146,47 +146,48 @@ export const EXPERIENCE = [
   }
 ];
 
-export const CERTIFICATIONS = [
-  {
-    title: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    date: '2024',
-    link: '#'
-  },
-  {
-    title: 'Meta Front-End Developer Professional Certificate',
-    issuer: 'Coursera',
-    date: '2023',
-    link: '#'
-  },
-  {
-    title: 'Google Cybersecurity Professional Certificate',
-    issuer: 'Coursera',
-    date: '2023',
-    link: '#'
-  }
-];
-
 export const ACHIEVEMENTS = [
   {
     title: 'Winner - Global Hackathon 2024',
     description: 'Awarded first place among 200+ teams for building a decentralized voting system.',
-    icon: Trophy
+    icon: Trophy,
+    type: 'Achievement'
   },
   {
-    title: 'Top 5% - LeetCode Weekly Contest',
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+    link: '#',
+    icon: Award,
+    type: 'Certification'
+  },
+  {
+    title: 'Meta Front-End Developer',
+    issuer: 'Coursera',
+    date: '2023',
+    link: '#',
+    icon: Award,
+    type: 'Certification'
+  },
+  {
+    title: 'Google Cybersecurity',
+    issuer: 'Coursera',
+    date: '2023',
+    link: '#',
+    icon: Award,
+    type: 'Certification'
+  },
+  {
+    title: 'Top 5% - LeetCode',
     description: 'Consistently ranked in the top 5% of participants globally in competitive programming.',
-    icon: Award
-  },
-  {
-    title: 'Open Source Contributor',
-    description: 'Contributed to major open-source projects like React and Tailwind CSS.',
-    icon: Github
+    icon: Award,
+    type: 'Achievement'
   }
 ];
 
 export const CONTACT_INFO = {
   email: 'favasm7907@gmail.com',
+  location: 'San Francisco, CA',
   socials: [
     { name: 'GitHub', icon: Github, href: 'https://github.com' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
