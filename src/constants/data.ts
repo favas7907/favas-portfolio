@@ -37,7 +37,7 @@ export const HERO_CONTENT = {
   ctaPrimary: 'View Projects',
   ctaSecondary: 'Download Resume',
   ctaTertiary: 'Contact Me',
-  avatarUrl: '/FavasM.jpg',
+  avatarUrl: '/profile.jpg',
 };
 
 export const ABOUT_CONTENT = {
