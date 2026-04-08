@@ -37,7 +37,7 @@ export const HERO_CONTENT = {
   ctaPrimary: 'View Projects',
   ctaSecondary: 'Download Resume',
   ctaTertiary: 'Contact Me',
-  avatarUrl: 'https://drive.google.com/file/d/15O_WOAploPq5yEUO8quO05N9IKZ9W3Bh/view?usp=sharing',
+  avatarUrl: '/FavasM.jpg',
 };
 
 export const ABOUT_CONTENT = {
