@@ -1,134 +1,20 @@
-# 🚀 Favas M – Portfolio
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-> **B.Tech Computer Science Student | Full Stack Developer | AI • Blockchain • Cybersecurity Enthusiast**
+# Run and deploy your AI Studio app
 
-A modern, responsive personal portfolio showcasing my projects, skills, and achievements. Built with a focus on clean UI, performance, and real-world readiness.
+This contains everything you need to run your app locally.
 
----
+View your app in AI Studio: https://ai.studio/apps/10c12515-d850-446d-892d-f9df2615cb44
 
-## 🌐 Live Demo
-👉 https://favas7907.github.io/portfolio/
+## Run Locally
 
----
+**Prerequisites:**  Node.js
 
-## 🧠 About Me
-I’m a B.Tech Computer Science student passionate about building **scalable, secure, and intelligent digital solutions**.
 
-My core interests:
-- Full Stack Development  
-- Artificial Intelligence  
-- Blockchain  
-- Cybersecurity  
-
----
-
-## 🛠️ Tech Stack
-
-### 💻 Frontend
-- React (Vite)
-- Tailwind CSS
-
-### ⚙️ Tools
-- Git & GitHub  
-- VS Code  
-- GitHub Pages  
-
----
-
-## ✨ Features
-
-- 🎯 Clean and modern UI  
-- 📱 Fully responsive design  
-- 📂 Project showcase with tech stack  
-- 🧠 Skills & Achievements section  
-- 📬 Contact section  
-- ⚡ Optimized performance  
-
----
-
-## 📁 Project Structure
-
-```
-portfolio/
-│── public/
-│── src/
-│   ├── components/
-│   ├── sections/
-│   ├── assets/
-│   └── App.jsx
-│── index.html
-│── package.json
-│── vite.config.js
-```
-
----
-
-## 🚀 Deployment (GitHub Pages)
-
-### 1. Install gh-pages
-```
-npm install gh-pages --save-dev
-```
-
-### 2. Update `package.json`
-```
-"homepage": "https://favas7907.github.io/portfolio",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
-
-### 3. Configure Vite (`vite.config.js`)
-```
-export default defineConfig({
-  base: '/portfolio/',
-})
-```
-
-### 4. Deploy
-```
-npm run deploy
-```
-
----
-
-## 💻 Run Locally
-
-```
-git clone https://github.com/favas7907/portfolio.git
-cd portfolio
-npm install
-npm run dev
-```
-
----
-
-## 📸 Screenshots
-_Add screenshots of your portfolio here_
-
----
-
-## 📬 Contact
-
-- 📧 Email: favasm7907@gmail.com
-- 💼 LinkedIn: https://linkedin.com/in/favas7907  
-- 🐙 GitHub: https://github.com/favas7907  
-
----
-
-## ⭐ Support
-If you like this project, consider giving it a ⭐ on GitHub!
-
----
-
-## 📄 License
-This project is licensed under the MIT License.
-
----
-
-## 🚀 Final Note
-This portfolio reflects:
-- clean UI/UX  
-- strong frontend skills  
-- real-world project readiness  
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
