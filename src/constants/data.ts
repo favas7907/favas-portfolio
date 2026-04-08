@@ -37,7 +37,7 @@ export const HERO_CONTENT = {
   ctaPrimary: 'View Projects',
   ctaSecondary: 'Download Resume',
   ctaTertiary: 'Contact Me',
-  avatarUrl: '/profile.jpg',
+  avatarUrl: 'https://media.licdn.com/dms/image/v2/D4D03AQE4sW5spbwKsw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731936226869?e=1777507200&v=beta&t=Z-1ufild-CI__f3A_vAIKSO86abpO9w2pSfM_iF1n6E',
 };
 
 export const ABOUT_CONTENT = {
