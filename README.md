@@ -111,8 +111,8 @@ _Add screenshots of your portfolio here_
 
 ## 📬 Contact
 
-- 📧 Email: your-email@example.com  
-- 💼 LinkedIn: https://linkedin.com/in/your-profile  
+- 📧 Email: favasm7907@gmail.com
+- 💼 LinkedIn: https://linkedin.com/in/favas7907  
 - 🐙 GitHub: https://github.com/favas7907  
 
 ---
