@@ -22,7 +22,7 @@ export default function SectionHeading({ title, subtitle, badge, centered = true
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className={`inline-block px-4 py-1.5 bg-purple-50 text-primary text-[10px] font-bold rounded-full mb-6 border border-purple-100 uppercase tracking-[0.2em] ${centered ? 'mx-auto' : ''}`}
+          className={`inline-block px-4 py-2 bg-black text-white text-[10px] font-black mb-8 uppercase tracking-[0.3em] ${centered ? 'mx-auto' : ''}`}
         >
           {badge}
         </motion.div>
@@ -32,7 +32,7 @@ export default function SectionHeading({ title, subtitle, badge, centered = true
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1, duration: 0.6 }}
-        className="text-3xl md:text-5xl font-extrabold text-text-primary mb-6 tracking-tight leading-tight"
+        className="text-5xl md:text-7xl font-black text-black mb-8 tracking-tighter leading-none uppercase"
       >
         {title}
       </motion.h2>
@@ -42,17 +42,17 @@ export default function SectionHeading({ title, subtitle, badge, centered = true
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium"
+          className="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto leading-relaxed font-medium"
         >
           {subtitle}
         </motion.p>
       )}
       <motion.div 
         initial={{ width: 0 }}
-        whileInView={{ width: 64 }}
+        whileInView={{ width: 100 }}
         viewport={{ once: true }}
         transition={{ delay: 0.4, duration: 0.8, ease: "circOut" }}
-        className={`h-1 bg-gradient-to-r from-primary to-secondary mt-8 rounded-full ${centered ? 'mx-auto' : ''}`} 
+        className={`h-2 bg-primary mt-12 ${centered ? 'mx-auto' : ''}`} 
       />
     </motion.div>
   );

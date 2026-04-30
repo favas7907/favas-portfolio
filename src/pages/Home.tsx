@@ -11,7 +11,7 @@ import ScrollProgress from '../components/ScrollProgress';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-bg-main selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen flex flex-col bg-white selection:bg-primary selection:text-white">
       <ScrollProgress />
       <Navbar />
       <main className="flex-grow">

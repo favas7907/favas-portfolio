@@ -18,6 +18,8 @@ import {
   FileText
 } from 'lucide-react';
 
+import avatarImage from '../assets/FavasM.jpg';
+
 export const NAV_LINKS = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
@@ -31,23 +33,23 @@ export const HERO_CONTENT = {
   name: 'Favas M',
   role: 'B.Tech Computer Science Student | Full Stack Developer',
   specialization: 'AI • Blockchain • Cybersecurity Enthusiast',
-  college: 'Computer Science & Engineering',
+  college: 'NSS College of Engineering, Palakkad',
   year: '2024-2028',
-  tagline: 'Building scalable, secure, and intelligent digital solutions using modern technologies.',
+  tagline: 'Building scalable, secure, and intelligent digital solutions.',
   ctaPrimary: 'View Projects',
   ctaSecondary: 'Download Resume',
   ctaTertiary: 'Contact Me',
-  avatarUrl: 'https://media.licdn.com/dms/image/v2/D4D03AQE4sW5spbwKsw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1731936226869?e=1777507200&v=beta&t=Z-1ufild-CI__f3A_vAIKSO86abpO9w2pSfM_iF1n6E',
+  avatarUrl: avatarImage,
 };
 
 export const ABOUT_CONTENT = {
   title: 'About Me',
-  description: 'I am a passionate B.Tech Computer Science student specializing in building scalable, secure, and intelligent digital solutions. My journey in technology is driven by a deep interest in Full Stack Development, Artificial Intelligence, Blockchain, and Cybersecurity. I love solving complex problems and turning ideas into functional, user-centric applications.',
+  description: 'I am a passionate B.Tech Computer Science student specializing in building scalable, secure, and intelligent digital solutions. My focus areas include Full Stack Development, AI, Blockchain, and Cybersecurity. Connecting design with clean code, I strive for digital perfection.',
   highlights: [
-    'Full Stack Web Development (MERN/Next.js)',
-    'AI & Machine Learning Enthusiast',
-    'Blockchain & Decentralized Apps',
-    'Cybersecurity & Ethical Hacking'
+    'Full Stack Development',
+    'AI Enthusiast',
+    'Blockchain',
+    'Cybersecurity'
   ]
 };
 

@@ -43,13 +43,13 @@ export default function Navbar() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? 'bg-white/90 backdrop-blur-lg border-b border-purple-100/50 py-3 shadow-sm' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200/50 py-4 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]' : 'bg-transparent py-8'
       }`}
     >
-      <div className="container-custom px-4 md:px-8 lg:px-16 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-3 group" aria-label="Favas M Home">
-          <span className="text-xl font-extrabold text-text-primary tracking-tight group-hover:text-primary transition-colors">Favas M</span>
+      <div className="container-custom flex justify-between items-center">
+        <a href="#" className="flex items-center gap-2 group" aria-label="Favas M Home">
+          <span className="text-2xl font-black text-black tracking-tighter uppercase">Favas M</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -59,20 +59,17 @@ export default function Navbar() {
               <a 
                 key={link.name} 
                 href={link.href}
-                className={`text-[11px] font-bold uppercase tracking-[0.2em] transition-all relative group py-2 ${
-                  activeSection === link.href.substring(1) ? 'text-primary' : 'text-text-secondary hover:text-text-primary'
+                className={`text-[11px] font-bold uppercase tracking-widest transition-all relative group py-2 ${
+                  activeSection === link.href.substring(1) ? 'text-primary' : 'text-text-secondary hover:text-black'
                 }`}
               >
                 {link.name}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-500 ${
-                  activeSection === link.href.substring(1) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
               </a>
             ))}
           </div>
           <a 
             href="/resume.pdf" 
-            className="btn-primary !px-6 !py-2.5 !text-[10px]"
+            className="btn-primary !px-5 !py-2.5 !text-[11px]"
             download
           >
             Resume
@@ -81,7 +78,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden text-text-primary focus:outline-none p-2 hover:bg-purple-50 rounded-xl transition-colors"
+          className="md:hidden text-text-primary focus:outline-none p-2 hover:bg-gray-50 rounded-lg transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
@@ -94,20 +91,20 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-purple-100 overflow-hidden shadow-xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-white border-b border-gray-100 overflow-hidden shadow-2xl"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <div className="flex flex-col p-8 gap-4">
               {NAV_LINKS.map((link) => (
                 <a 
                   key={link.name} 
                   href={link.href}
-                  className={`text-sm font-bold uppercase tracking-[0.2em] transition-all px-4 py-3 rounded-2xl ${
+                  className={`text-[11px] font-bold uppercase tracking-widest transition-all px-4 py-3 rounded-lg ${
                     activeSection === link.href.substring(1) 
-                      ? 'text-primary bg-purple-50 border border-purple-100' 
-                      : 'text-text-secondary hover:text-text-primary hover:bg-purple-50/50'
+                      ? 'text-primary bg-red-50' 
+                      : 'text-text-secondary hover:text-black hover:bg-gray-50'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -116,7 +113,7 @@ export default function Navbar() {
               ))}
               <a 
                 href="/resume.pdf" 
-                className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-4 rounded-2xl text-center text-sm font-bold uppercase tracking-[0.2em] hover:shadow-lg transition-all duration-300"
+                className="btn-primary w-full py-3.5 mt-4"
                 onClick={() => setIsOpen(false)}
                 download
               >

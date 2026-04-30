@@ -3,13 +3,14 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-primary: #8b5cf6;
-  --color-secondary: #ec4899;
-  --color-bg-main: #faf5ff;
-  --color-bg-alt: #fdf4ff;
-  --color-bg-section: #fce7f3;
-  --color-text-primary: #1f2937;
-  --color-text-secondary: #6b7280;
+  --color-primary: #DC2626; /* Exact Premium Red */
+  --color-secondary: #000000;
+  --color-bg-main: #FFFFFF;
+  --color-bg-alt: #F9F9F9;
+  --color-bg-section: #FFFFFF;
+  --color-text-primary: #000000;
+  --color-text-secondary: #525252;
+  --color-border-subtle: #000000;
 }
 
 @layer base {
@@ -18,36 +19,35 @@
     overflow-x: hidden;
   }
   body {
-    @apply font-sans bg-bg-main text-text-primary antialiased selection:bg-primary selection:text-white overflow-x-hidden;
+    @apply font-sans bg-white text-gray-900 antialiased overflow-x-hidden;
+  }
+  ::selection {
+    @apply bg-primary/20 text-primary;
   }
   :focus-visible {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg-main;
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply py-20 md:py-28 px-4 md:px-8 lg:px-16;
+    @apply py-16 lg:py-20;
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto w-full;
+    @apply max-w-7xl mx-auto px-4 md:px-8 lg:px-16 w-full;
   }
   
   .card-style {
-    @apply bg-white rounded-2xl shadow-sm border border-purple-100/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300;
-  }
-  
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+    @apply bg-white border border-slate-100 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:border-primary/20;
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-primary to-secondary text-white px-8 py-3.5 rounded-xl font-bold hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest;
+    @apply bg-primary text-white px-8 py-3.5 font-bold hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest rounded-xl shadow-[0_4px_15px_rgba(220,38,38,0.2)];
   }
 
-  .btn-secondary {
-    @apply bg-white text-text-primary border border-purple-100 px-8 py-3.5 rounded-xl font-bold hover:bg-purple-50 transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest;
+  .btn-outline {
+    @apply bg-white border border-slate-200 text-gray-800 px-8 py-3.5 font-bold hover:border-primary/30 hover:text-primary hover:shadow-[0_0_15px_rgba(220,38,38,0.15)] transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest rounded-xl;
   }
 }
 

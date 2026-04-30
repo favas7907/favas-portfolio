@@ -1,27 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Send, Mail, MapPin, Phone, Github, Linkedin, Globe } from 'lucide-react';
+import { Send, Mail, MapPin } from 'lucide-react';
 import { CONTACT_INFO } from '../constants/data';
-import SectionHeading from './SectionHeading';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -37,7 +17,6 @@ export default function Contact() {
     if (!formData.name || !formData.email || !formData.message) return;
     
     setStatus('sending');
-    // Simulate form submission
     setTimeout(() => {
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -46,65 +25,65 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding bg-white relative overflow-hidden">
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.05, 0.1, 0.05]
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-        className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" 
-      />
-      
+    <section id="contact" className="section-padding bg-slate-50 relative">
       <div className="container-custom relative z-10">
-        <SectionHeading 
-          title="Get In Touch" 
-          badge="Contact"
-          subtitle="Have a project in mind or just want to say hi? Feel free to reach out!"
-        />
-        
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6"
+        >
+          <div className="max-w-2xl">
+            <div className="inline-block px-4 py-1.5 bg-white border border-slate-200 shadow-sm text-text-secondary text-[10px] font-bold rounded-full mb-6 uppercase tracking-widest">
+              Connect
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black tracking-tight leading-[1.1]">
+              Let's build <span className="text-primary italic font-serif font-normal">Something</span><br />
+              great.
+            </h2>
+          </div>
+          <p className="text-text-secondary text-lg font-medium max-w-sm leading-relaxed hidden md:block">
+            Passionate about Full Stack Development. Open for collaborations and discussions.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="w-full"
           >
-            <h3 className="text-3xl md:text-5xl font-extrabold text-text-primary mb-8 tracking-tight leading-tight">
-              Let's build something <span className="text-gradient">extraordinary</span> together.
-            </h3>
-            <p className="text-lg text-text-secondary mb-12 leading-relaxed font-medium">
-              Whether you're looking for a full-stack developer, a security consultant, or just want to discuss the latest tech trends, I'm always open to new opportunities and collaborations.
-            </p>
-            
             <div className="space-y-8 mb-12">
-              <div className="flex items-center gap-5 group">
-                <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-all duration-500 shadow-sm">
-                  <Mail className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+              <div className="flex items-center gap-6 group">
+                <div className="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all duration-300 shadow-sm shrink-0">
+                  <Mail className="w-5 h-5 text-black group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-1">Email Me</p>
-                  <p className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors">{CONTACT_INFO.email}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-text-secondary mb-1">Send an Email</p>
+                  <p className="text-lg md:text-xl font-bold text-black group-hover:text-primary transition-colors tracking-tight">{CONTACT_INFO.email}</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-5 group">
-                <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-all duration-500 shadow-sm">
-                  <MapPin className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+              <div className="flex items-center gap-6 group">
+                <div className="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center group-hover:bg-primary transition-all duration-300 shadow-sm shrink-0">
+                  <MapPin className="w-5 h-5 text-black group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary mb-1">Location</p>
-                  <p className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors">{CONTACT_INFO.location}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-text-secondary mb-1">Current Base</p>
+                  <p className="text-lg md:text-xl font-bold text-black group-hover:text-primary transition-colors tracking-tight">{CONTACT_INFO.location}</p>
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4 mt-12 w-full">
               {CONTACT_INFO.socials.map((social) => (
                 <a 
                   key={social.name} 
                   href={social.href}
-                  className="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                  className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-text-secondary hover:text-white hover:bg-black hover:border-black transition-all duration-300 shadow-sm"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5" />
@@ -114,80 +93,81 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="w-full max-w-2xl mx-auto lg:mx-0"
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="w-full"
           >
-            <form onSubmit={handleSubmit} className="card-style p-8 md:p-10">
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Full Name</label>
+            <form onSubmit={handleSubmit} className="bg-white p-6 md:p-10 border border-slate-200 rounded-[2rem] relative overflow-hidden shadow-sm w-full">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -mr-20 -mt-20 blur-2xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full -ml-16 -mb-16 blur-2xl pointer-events-none" />
+              
+              <div className="space-y-6 md:space-y-8 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                  <div className="space-y-2 w-full">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-text-secondary pl-2">Name</label>
                     <input 
                       type="text" 
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe"
-                      className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
+                      placeholder="Jane Doe"
+                      className="w-full bg-slate-50 border border-slate-200 px-5 py-3.5 text-black rounded-xl focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 placeholder:text-slate-400 font-medium"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Email Address</label>
+                  <div className="space-y-2 w-full">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-text-secondary pl-2">Email</label>
                     <input 
                       type="email" 
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@example.com"
-                      className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
+                      placeholder="jane@company.com"
+                      className="w-full bg-slate-50 border border-slate-200 px-5 py-3.5 text-black rounded-xl focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 placeholder:text-slate-400 font-medium"
                     />
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Subject</label>
+                <div className="space-y-2 w-full">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-text-secondary pl-2">Subject</label>
                   <input 
                     type="text" 
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="Project Inquiry"
-                    className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm"
+                    placeholder="New Project / Internship"
+                    className="w-full bg-slate-50 border border-slate-200 px-5 py-3.5 text-black rounded-xl focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 placeholder:text-slate-400 font-medium"
                   />
                 </div>
                 
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-secondary ml-1">Message</label>
+                <div className="space-y-2 w-full">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-text-secondary pl-2">Message</label>
                   <textarea 
                     required
-                    rows={5}
+                    rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell me about your project..."
-                    className="w-full bg-purple-50/30 border border-purple-100/50 rounded-xl px-5 py-4 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-text-secondary/30 font-medium text-sm resize-none"
+                    placeholder="Tell me more..."
+                    className="w-full bg-slate-50 border border-slate-200 px-5 py-3.5 text-black rounded-xl focus:outline-none focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all duration-300 placeholder:text-slate-400 font-medium resize-none"
                   ></textarea>
                 </div>
                 
                 <button 
                   type="submit"
                   disabled={status !== 'idle'}
-                  className={`w-full btn-primary py-4 transition-all duration-300 ${status === 'success' ? 'bg-green-500 from-green-500 to-green-600' : ''}`}
+                  className={`w-full py-4 rounded-xl font-bold uppercase tracking-widest text-[11px] transition-all duration-300 flex items-center justify-center gap-3 ${
+                    status === 'success' ? 'bg-emerald-500 text-white shadow-[0_4px_15px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_25px_rgba(16,185,129,0.4)]' : 'bg-primary text-white hover:bg-primary/95 shadow-[0_4px_15px_rgba(220,38,38,0.2)] hover:shadow-[0_8px_25px_rgba(220,38,38,0.35)]'
+                  }`}
                 >
                   {status === 'idle' && (
                     <>
                       Send Message
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4 ml-1" />
                     </>
                   )}
-                  {status === 'sending' && (
-                    <span className="animate-pulse">Sending...</span>
-                  )}
-                  {status === 'success' && (
-                    <span>Message Sent!</span>
-                  )}
+                  {status === 'sending' && "Processing..."}
+                  {status === 'success' && "Message Sent!"}
                 </button>
               </div>
             </form>
