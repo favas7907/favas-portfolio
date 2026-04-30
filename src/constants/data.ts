@@ -18,8 +18,6 @@ import {
   FileText
 } from 'lucide-react';
 
-import avatarImage from '../assets/FavasM.jpg';
-
 export const NAV_LINKS = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
@@ -39,7 +37,7 @@ export const HERO_CONTENT = {
   ctaPrimary: 'View Projects',
   ctaSecondary: 'Download Resume',
   ctaTertiary: 'Contact Me',
-  avatarUrl: avatarImage,
+  avatarUrl: 'https://raw.githubusercontent.com/favas7907/Personal/main/FavasM.jpg',
 };
 
 export const ABOUT_CONTENT = {
