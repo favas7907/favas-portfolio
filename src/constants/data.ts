@@ -26,6 +26,77 @@ export const NAV_LINKS = [
   { name: 'Projects', href: '/projects' },
   { name: 'Achievements', href: '/achievements' },
   { name: 'Contact', href: '/contact' },
+,
+  {
+    id: 'aws-solutions-architect',
+    title: 'AWS Certified Solutions Architect - Professional',
+    category: 'Certifications',
+    date: '2023',
+    shortDescription: 'Validated expertise in designing distributed systems and highly available architectures on AWS.',
+    image: 'https://picsum.photos/seed/aws/1200/800',
+    link: '#',
+    details: {
+      context: 'Achieving the highest level of AWS certification to validate deep architectural knowledge.',
+      opportunity: 'Formalize years of hands-on cloud experience into a globally recognized credential.',
+      challenge: 'Mastering complex scenarios involving hybrid networks, multi-region failover, and extreme scale.',
+      role: 'Cloud Architect',
+      responsibilities: [
+        'Designed fault-tolerant architectures',
+        'Optimized cost strategies for enterprise workloads',
+        'Implemented rigorous security protocols'
+      ],
+      outcome: 'Passed the rigorous 3-hour exam on the first attempt.',
+      impact: 'Provided internal teams with an authoritative architectural voice when transitioning to cloud-native microservices.',
+      lessons: 'Cloud architecture is fundamentally about trade-offs between cost, performance, and reliability.',
+      relatedTechnologies: ['AWS', 'Distributed Systems', 'Cloud Architecture'],
+    }
+  },
+  {
+    id: 'kubernetes-ckad',
+    title: 'Certified Kubernetes Application Developer (CKAD)',
+    category: 'Certifications',
+    date: '2022',
+    shortDescription: 'Demonstrated proficiency in building and deploying cloud-native applications on Kubernetes.',
+    image: 'https://picsum.photos/seed/k8s/1200/800',
+    details: {
+      context: 'Transitioning engineering infrastructure towards containerized orchestration.',
+      opportunity: 'Mastering Kubernetes primitives to deploy robust, scalable applications.',
+      challenge: 'Learning to debug complex pod networking and persistent storage issues in a live environment.',
+      role: 'Application Developer',
+      responsibilities: [
+        'Configured deployments and services',
+        'Managed persistent volumes and config maps',
+        'Implemented network policies'
+      ],
+      outcome: 'Earned the CKAD certification through a rigorous performance-based exam.',
+      impact: 'Dramatically reduced deployment friction and improved system reliability for multiple microservices.',
+      lessons: 'Declarative infrastructure fundamentally changes how we think about state and deployment.',
+      relatedTechnologies: ['Kubernetes', 'Docker', 'DevOps'],
+    }
+  },
+  {
+    id: 'react-community-speaker',
+    title: 'Keynote Speaker - React Advanced Summit',
+    category: 'Speaking',
+    date: '2023',
+    shortDescription: 'Delivered a technical deep dive on concurrent rendering and performance profiling in React 18.',
+    image: 'https://picsum.photos/seed/speaker/1200/800',
+    details: {
+      context: 'Invited to speak at a major regional React conference with over 500 attendees.',
+      opportunity: 'Share deep learnings about React 18 concurrent features derived from a large-scale migration.',
+      challenge: 'Distilling complex internal React scheduler concepts into digestible, actionable advice for working engineers.',
+      role: 'Keynote Speaker',
+      responsibilities: [
+        'Authored a 45-minute technical presentation',
+        'Created interactive visualizations of the React render phase',
+        'Led a live Q&A session on performance optimization'
+      ],
+      outcome: 'Received highest speaker rating of the conference and published the slide deck open-source.',
+      impact: 'Helped hundreds of developers adopt concurrent mode safely and improve their application performance.',
+      lessons: 'Teaching complex topics forces a deeper understanding of the underlying mechanics than just writing the code.',
+      relatedTechnologies: ['React', 'Performance Profiling', 'Technical Writing'],
+    }
+  }
 ];
 
 export const HERO_CONTENT = {
