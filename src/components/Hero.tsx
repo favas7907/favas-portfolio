@@ -1,108 +1,102 @@
 import { motion } from 'motion/react';
-import { HERO_CONTENT, CONTACT_INFO } from '../constants/data';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { HERO_CONTENT } from '../constants/data';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
+    transition: { staggerChildren: 0.15 }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 },
   visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } 
-  }
+     opacity: 1, 
+     y: 0, 
+     transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
+   }
 };
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-28 pb-16 bg-white relative overflow-hidden">
-      {/* Premium subtle background glow */}
-      <div className="absolute top-0 right-[-10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-primary/5 rounded-full blur-[100px] opacity-70 pointer-events-none" />
+    <section id="home" className="min-h-screen flex items-center pt-32 pb-16 lg:pt-40 lg:pb-20 bg-white relative overflow-hidden">
+      {/* Premium subtle background lighting */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        {/* Soft top-left ambient light to frame the text */}
+        <motion.div 
+          animate={{ opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full bg-slate-100 blur-[120px]" 
+        />
+        
+        {/* Subtle primary accent light to frame the visual */}
+        <motion.div 
+          animate={{ opacity: [0.03, 0.05, 0.03] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] rounded-full bg-primary blur-[120px]" 
+        />
+
+        {/* Lower soft light to create vertical depth and connection */}
+        <motion.div 
+          animate={{ opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full bg-slate-50 blur-[120px]" 
+        />
+      </div>
       
-      <div className="container-custom grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10 w-full">
+      <div className="container-custom flex flex-col lg:grid lg:grid-cols-12 gap-16 lg:gap-8 items-center relative z-10 w-full">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="lg:col-span-7 flex flex-col items-start order-2 lg:order-1 w-full"
+          className="lg:col-span-6 flex flex-col items-center text-center lg:items-start lg:text-left w-full"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-4 py-1.5 bg-white border border-slate-200 shadow-sm text-text-secondary rounded-full text-[10px] font-bold uppercase tracking-widest mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span>Available for Opportunities</span>
-          </motion.div>
-          
           <motion.h1 
             variants={itemVariants} 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-extrabold text-black mb-6 tracking-tight leading-[1.05]"
+            className="text-6xl sm:text-7xl lg:text-[80px] font-bold text-black mb-5 tracking-tight leading-[1.05]"
           >
-            Favas M
+            {HERO_CONTENT.name}
           </motion.h1>
 
-          <motion.div variants={itemVariants} className="space-y-4 mb-8 w-full">
-            <p className="text-xl md:text-2xl font-semibold tracking-tight text-text-secondary">
+          <motion.div variants={itemVariants} className="mb-6 w-full">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-slate-800 leading-snug">
               {HERO_CONTENT.role}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {HERO_CONTENT.specialization.split(' • ').map((spec) => (
-                <span key={spec} className="px-3 py-1 bg-slate-50 border border-slate-100 text-text-secondary rounded-lg text-[10px] font-bold uppercase tracking-widest">
-                  {spec}
-                </span>
-              ))}
-            </div>
+            </h2>
           </motion.div>
 
-          <motion.p variants={itemVariants} className="text-lg text-text-secondary mb-10 max-w-xl leading-relaxed font-medium">
+          <motion.p variants={itemVariants} className="text-lg sm:text-xl text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
             {HERO_CONTENT.tagline}
           </motion.p>
           
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-12 w-full">
-            <a href="#projects" className="btn-primary min-w-[160px]">
-              {HERO_CONTENT.ctaPrimary}
-            </a>
-            <a href="#contact" className="btn-outline min-w-[160px]">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-4 w-full">
+            <Link to="/projects" className="group btn-primary min-w-[160px]">
+              <span>{HERO_CONTENT.ctaPrimary}</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+            <Link to="/contact" className="btn-outline min-w-[160px]">
               {HERO_CONTENT.ctaTertiary}
-            </a>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="flex items-center gap-4 w-full">
-            {CONTACT_INFO.socials.map((social) => (
-              <a 
-                key={social.name} 
-                href={social.href}
-                className="w-12 h-12 rounded-xl flex items-center justify-center bg-white border border-slate-200 text-text-secondary hover:text-white hover:bg-black hover:border-black transition-all duration-300 shadow-sm"
-                aria-label={social.name}
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
-            ))}
+            </Link>
           </motion.div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2 w-full"
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+          className="lg:col-span-5 lg:col-start-8 flex justify-center lg:justify-end w-full"
         >
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[420px]">
-            {/* Subtle Glow Backdrop */}
-            <div className="absolute inset-0 bg-primary/5 rounded-[2.5rem] rotate-6" />
-            
+          <div className="relative w-full max-w-[280px] sm:max-w-[360px] lg:max-w-[420px] aspect-[4/5] group">
             {/* Main Avatar Container */}
-            <div className="relative z-10 w-full h-full p-2 bg-white border border-slate-100 rounded-[2.5rem] shadow-xl overflow-hidden">
+            <div className="relative z-10 w-full h-full rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.08)] overflow-hidden border border-slate-200/80 bg-slate-50">
               <img 
                 src={HERO_CONTENT.avatarUrl} 
-                alt="Profile photo"
-                className="w-full h-full object-cover rounded-[2rem]"
+                alt={`${HERO_CONTENT.name} - Profile`}
+                className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
                 loading="eager"
+                fetchPriority="high"
                 referrerPolicy="no-referrer"
               />
             </div>
