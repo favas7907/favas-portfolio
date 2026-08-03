@@ -7,7 +7,7 @@ export default function ProjectReference({ project }: { project: TechnologyProje
     <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:shadow-sm transition-shadow group">
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
         <div>
-          <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
+          <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors mb-2">
             {project.name}
           </h3>
           <p className="text-sm font-medium text-slate-500">{project.role}</p>
@@ -50,7 +50,7 @@ export default function ProjectReference({ project }: { project: TechnologyProje
         <div className="mt-8 pt-6 border-t border-slate-100">
           <Link 
             to={project.caseStudyUrl}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
           >
             Read Case Study
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

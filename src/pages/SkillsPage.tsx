@@ -17,14 +17,17 @@ export default function SkillsPage() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mb-24"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-24"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-slate-900 mb-8 leading-[1.1]">
-            Engineering Capabilities
+          <span className="block text-xs font-bold uppercase tracking-widest text-primary mb-4">
+            Skills
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black mb-6 leading-[1.1]">
+            What I Work With
           </h1>
-          <p className="text-lg md:text-xl font-light text-slate-500 leading-relaxed max-w-2xl">
-            A directory of the engineering problems I solve and the technical ecosystems I combine to build production-grade software.
+          <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl">
+            The tools and technologies I reach for when building things — and the kinds of problems they help me solve.
           </p>
         </motion.div>
 

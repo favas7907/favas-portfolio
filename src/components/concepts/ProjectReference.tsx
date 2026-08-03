@@ -23,9 +23,9 @@ export default function ProjectReference({ projects }: ProjectReferenceProps) {
           <Link
             key={idx}
             to={project.url}
-            className="group block p-5 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-[0_4px_20px_-4px_rgba(37,99,235,0.1)] transition-all bg-white"
+            className="group block p-5 rounded-xl border border-slate-200 hover:border-primary/30 hover:shadow-[0_4px_20px_-4px_rgba(37,99,235,0.1)] transition-all bg-white"
           >
-            <h5 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
+            <h5 className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors mb-2">
               {project.title}
             </h5>
             <p className="text-xs text-slate-500 font-light leading-relaxed">

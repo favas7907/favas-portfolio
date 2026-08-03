@@ -7,8 +7,8 @@ export default function CurrentlyLearningSection() {
   return (
     <section>
       <div className="flex items-center gap-4 mb-10 border-b border-slate-200 pb-6">
-        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
-          <BookOpen className="w-6 h-6 text-blue-600" />
+        <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center shrink-0">
+          <BookOpen className="w-6 h-6 text-primary" />
         </div>
         <div>
           <h2 className="text-2xl font-medium tracking-tight text-slate-900">Currently Learning</h2>
@@ -24,11 +24,11 @@ export default function CurrentlyLearningSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-200 hover:shadow-sm transition-all flex flex-col"
+            className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-primary/20 hover:shadow-sm transition-all flex flex-col"
           >
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-xl font-medium text-slate-900 leading-tight">{item.topic}</h3>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100 whitespace-nowrap ml-4">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/5 px-3 py-1.5 rounded-lg border border-primary/10 whitespace-nowrap ml-4">
                 Active
               </span>
             </div>
@@ -52,7 +52,7 @@ export default function CurrentlyLearningSection() {
                 <ul className="space-y-2">
                   {item.recentUpdates.map((update, i) => (
                     <li key={i} className="text-sm text-slate-600 font-light flex items-start">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 mr-3 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/70 mt-1.5 mr-3 shrink-0" />
                       <span className="leading-relaxed">{update}</span>
                     </li>
                   ))}
@@ -68,7 +68,7 @@ export default function CurrentlyLearningSection() {
               
               <Link 
                 to={`/skills/${item.roadmapId}`}
-                className="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors flex items-center"
+                className="text-sm font-medium text-primary hover:text-primary-dark transition-colors flex items-center"
               >
                 View Roadmap
                 <ExternalLink className="w-4 h-4 ml-1" />

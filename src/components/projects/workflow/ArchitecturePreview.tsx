@@ -26,10 +26,10 @@ export default function ArchitecturePreview() {
 
         {/* Server */}
         <div className="flex flex-col items-center">
-          <div className="w-24 h-24 bg-white border-2 border-blue-100 rounded-2xl flex items-center justify-center shadow-md shadow-blue-500/5 mb-4 relative">
-            <Server className="w-10 h-10 text-blue-500" />
+          <div className="w-24 h-24 bg-white border-2 border-primary/10 rounded-2xl flex items-center justify-center shadow-md shadow-blue-500/5 mb-4 relative">
+            <Server className="w-10 h-10 text-primary" />
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Backend</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Backend</span>
         </div>
 
         {/* Arrow Desktop */}

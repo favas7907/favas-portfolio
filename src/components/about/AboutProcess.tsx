@@ -2,53 +2,53 @@ import { motion } from 'motion/react';
 
 const PHILOSOPHY_SECTIONS = [
   {
-    title: 'Curiosity at the core',
+    title: 'Curiosity first',
     content: (
       <>
         <p>
-          My approach begins with a quiet refusal to accept that things simply work. When I use a library or a framework, I need to understand the underlying mechanics. 
+          I can't just use something without wanting to know how it works underneath. When I pull in a library, I end up reading the source code. It's a habit.
         </p>
         <p>
-          That persistent questioning—tracing logic down to its core—uncovers edge cases and architectural constraints long before they reach production. It prevents me from building on fragile assumptions.
+          That instinct to dig deeper usually helps me catch weird edge cases before they become bugs in production. It also means I don't build on top of things I don't understand.
         </p>
       </>
     )
   },
   {
-    title: 'Simplicity over cleverness',
+    title: 'Keep it simple',
     content: (
       <>
         <p>
-          I actively avoid over-engineering. Every abstraction, every microservice, and every added dependency carries a long-term maintenance cost. I prefer readable, explicit logic over dense shortcuts.
+          I try not to over-engineer things. Every abstraction and every extra dependency is something future-me (or a teammate) will have to maintain. Readable code beats clever code every time.
         </p>
         <p>
-          I design with the empathy that another engineer—or myself in six months—will have to navigate this architecture without a manual. Complexity should only be introduced when the scale of the problem absolutely demands it.
+          If I can't explain why a piece of complexity exists, it probably shouldn't be there. I only add layers when the problem genuinely needs them.
         </p>
       </>
     )
   },
   {
-    title: 'Designing for failure',
+    title: 'Plan for things to break',
     content: (
       <>
         <p>
-          Building carefully means anticipating how the application will fail, rather than just hoping it succeeds. I approach architecture with a zero-trust mindset, treating failure as an expected state in distributed systems.
+          I've learned to think about how my code will fail, not just how it should work. Things will go wrong — the question is whether your app handles it gracefully or just crashes.
         </p>
         <p>
-          How gracefully a system recovers from an outage defines its true engineering quality far more than its performance on a perfect day.
+          How a system recovers from something going wrong says more about its quality than how it performs on a good day.
         </p>
       </>
     )
   },
   {
-    title: 'Measurement and iteration',
+    title: 'Ship, then improve',
     content: (
       <>
         <p>
-          Shipping the first version is only the beginning. When a system goes live, it finally meets reality. I optimize only after measuring, replacing assumptions with data.
+          The first version is never the final version. Once something is live and real people are using it, that's when you actually learn what needs to be better.
         </p>
         <p>
-          I iterate relentlessly, refining the interactions and tuning the backend until the technical complexity disappears entirely from the user's perspective.
+          I try to optimize based on what's actually happening, not what I think might happen. Measure first, then fix.
         </p>
       </>
     )
@@ -69,11 +69,11 @@ export default function AboutProcess() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:sticky lg:top-32"
             >
-              <h2 className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">
-                Engineering Philosophy
+              <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
+                How I Think About Code
               </h2>
               <p className="text-2xl md:text-3xl font-medium text-slate-900 tracking-tight mb-8">
-                How I approach problems, evaluate trade-offs, and define quality.
+                The principles I've picked up along the way.
               </p>
             </motion.div>
           </div>

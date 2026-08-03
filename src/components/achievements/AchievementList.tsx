@@ -1,120 +1,147 @@
-import { motion } from 'motion/react';
+import { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Link as LinkIcon, Calendar, Building2 } from 'lucide-react';
+import { ArrowUpRight, Calendar, Award, Users, Mic, ShieldCheck } from 'lucide-react';
 import { ACHIEVEMENTS } from '../../constants/data';
 
+const CATEGORY_ICONS: Record<string, typeof Award> = {
+  'Hackathons': Award,
+  'Certifications': ShieldCheck,
+  'Events': Mic,
+  'Community': Users,
+  'Open Source': Award,
+  'Leadership': Users,
+};
+
 export default function AchievementList() {
-  // Filter out the featured achievement
-  const regularAchievements = ACHIEVEMENTS.filter(a => a.id !== 'global-hackathon-2024');
-  
-  // Group achievements by category
-  const groupedAchievements = regularAchievements.reduce((acc, achievement) => {
-    if (!acc[achievement.category]) {
-      acc[achievement.category] = [];
-    }
-    acc[achievement.category].push(achievement);
-    return acc;
-  }, {} as Record<string, typeof ACHIEVEMENTS>);
+  const categories = useMemo(() => {
+    const unique = ['All', ...new Set(ACHIEVEMENTS.map(a => a.category))];
+    return unique;
+  }, []);
+
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filtered = useMemo(() => {
+    if (activeFilter === 'All') return ACHIEVEMENTS;
+    return ACHIEVEMENTS.filter(a => a.category === activeFilter);
+  }, [activeFilter]);
 
   return (
-    <div className="bg-slate-50 border-t border-slate-100">
-      {Object.entries(groupedAchievements).map(([category, items], sectionIndex) => (
-        <section key={category} className="py-24 md:py-32 border-b border-slate-200 last:border-b-0">
-          <div className="container-custom">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-              
-              <div className="lg:col-span-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="sticky top-32"
-                >
-                  <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
-                    Recognition Category
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-slate-900">
-                    {category}
-                  </h2>
-                </motion.div>
-              </div>
-
-              <div className="lg:col-span-8">
-                <div className="flex flex-col gap-8 md:gap-12">
-                  {items.map((achievement, index) => (
-                    <motion.div
-                      key={achievement.id}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                      className="group flex flex-col md:flex-row gap-8 md:gap-10 items-start p-6 md:p-10 rounded-[2rem] bg-white border border-slate-200/60 hover:border-slate-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500"
-                    >
-                      <div className="flex flex-col justify-center flex-grow w-full">
-                        <div className="flex flex-wrap items-center gap-4 mb-6">
-                          <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-100 px-3 py-1.5 rounded-md">
-                            <Calendar className="w-3 h-3" /> {achievement.date}
-                          </span>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">
-                            {achievement.details.role || 'Contributor'}
-                          </span>
-                        </div>
-                        
-                        <h3 className="text-2xl lg:text-3xl font-medium text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
-                          <Link to={`/achievements/${achievement.id}`}>
-                            {achievement.title}
-                          </Link>
-                        </h3>
-                        
-                        <p className="text-base md:text-lg text-slate-600 font-light leading-relaxed mb-8">
-                          {achievement.shortDescription}
-                        </p>
-                        
-                        {/* Certificate/Metadata Row */}
-                        {category === 'Certifications' && (
-                          <div className="flex flex-wrap gap-x-8 gap-y-4 mb-8 p-5 bg-slate-50/80 rounded-xl border border-slate-100">
-                            <div className="flex flex-col">
-                              <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">
-                                <Building2 className="w-3 h-3" /> Issuer
-                              </span>
-                              <span className="text-sm font-medium text-slate-900">{achievement.details.relatedTechnologies?.[0] || 'Institution'}</span>
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5">Status</span>
-                              <span className="text-sm font-medium text-emerald-600 flex items-center gap-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Verified
-                              </span>
-                            </div>
-                            {achievement.link && (
-                               <div className="flex flex-col justify-end ml-auto">
-                                  <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="flex items-center text-xs font-bold uppercase tracking-widest text-blue-600 hover:text-blue-700 transition-colors p-2 -m-2">
-                                    <LinkIcon className="w-3.5 h-3.5 mr-1.5" /> View Credential
-                                  </a>
-                               </div>
-                            )}
-                          </div>
-                        )}
-                        
-                        <div className="mt-auto pt-4 border-t border-slate-100">
-                          <Link 
-                            to={`/achievements/${achievement.id}`}
-                            className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors"
-                          >
-                            Read Full Context
-                            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                          </Link>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              
-            </div>
+    <section className="py-20 md:py-28 bg-white">
+      <div className="container-custom">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10"
+        >
+          <span className="block text-xs font-bold uppercase tracking-widest text-primary mb-4">
+            Recognition
+          </span>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black">
+              All Achievements
+            </h2>
+            <p className="text-sm text-slate-400">
+              <span className="font-semibold text-black">{filtered.length}</span> of {ACHIEVEMENTS.length} entries
+            </p>
           </div>
-        </section>
-      ))}
-    </div>
+        </motion.div>
+
+        {/* Category Filters — scrollable on mobile */}
+        <div className="mb-10 overflow-x-auto hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex items-center gap-2 min-w-max">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 whitespace-nowrap ${
+                  activeFilter === cat
+                    ? 'bg-gradient-to-r from-primary via-purple-600 to-accent text-white shadow-md shadow-primary/20'
+                    : 'text-slate-400 hover:text-black hover:bg-slate-50'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Achievement Cards Grid */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((achievement) => {
+              const Icon = CATEGORY_ICONS[achievement.category] || Award;
+              return (
+                <motion.div
+                  key={achievement.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Link
+                    to={`/achievements/${achievement.id}`}
+                    className="group block bg-white border border-slate-200/80 rounded-2xl overflow-hidden hover-lift relative"
+                  >
+                    {/* Image header */}
+                    <div className="relative aspect-[16/8] overflow-hidden bg-slate-100">
+                      <img 
+                        src={achievement.image} 
+                        alt={achievement.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-lg">
+                          <Icon className="w-3 h-3" /> {achievement.category}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-4 right-4">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-white/80 bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-md flex items-center gap-1">
+                          <Calendar className="w-3 h-3" /> {achievement.date}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-5 md:p-6">
+                      <h3 className="text-lg md:text-xl font-bold text-black tracking-tight mb-3 group-hover:text-primary transition-colors leading-tight">
+                        {achievement.title}
+                      </h3>
+
+                      <p className="text-sm text-slate-500 leading-relaxed mb-5 line-clamp-2">
+                        {achievement.shortDescription}
+                      </p>
+
+                      {/* Tech tags */}
+                      {achievement.details.relatedTechnologies && (
+                        <div className="flex flex-wrap gap-1.5 mb-5">
+                          {achievement.details.relatedTechnologies.slice(0, 4).map(tech => (
+                            <span key={tech} className="text-[10px] font-semibold text-primary bg-primary/5 border border-primary/10 px-2.5 py-1 rounded-md">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-lg group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                        Read Story <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
+
+      </div>
+    </section>
   );
 }

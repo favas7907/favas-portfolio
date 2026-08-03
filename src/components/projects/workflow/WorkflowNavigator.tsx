@@ -1,12 +1,7 @@
-import React from 'react';
 import { Project } from '../../../types';
-import WorkflowStage from './WorkflowStage';
-import ArtifactPanel from './ArtifactPanel';
-import ArchitecturePreview from './ArchitecturePreview';
+import { motion } from 'motion/react';
+import { Target, Layers, Zap, TrendingUp } from 'lucide-react';
 import DecisionReference from './DecisionReference';
-import IterationHistory from './IterationHistory';
-import RetrospectiveCard from './RetrospectiveCard';
-import ProjectRelationshipPanel from '../evidence/ProjectRelationshipPanel';
 
 interface WorkflowNavigatorProps {
   project: Project;
@@ -15,200 +10,138 @@ interface WorkflowNavigatorProps {
 export default function WorkflowNavigator({ project }: WorkflowNavigatorProps) {
   const { details } = project;
 
-  // Helper to categorize milestones by phase loosely
-  const getMilestonesByPhases = (phases: string[]) => {
-    return details.development.filter(m => 
-      phases.some(p => m.phase.toLowerCase().includes(p.toLowerCase()))
-    );
-  };
-
-  const researchMilestones = getMilestonesByPhases(['research', 'discovery']);
-  const prototypeMilestones = getMilestonesByPhases(['prototype', 'design']);
-  const implementationMilestones = getMilestonesByPhases(['sprint', 'core', 'implementation', 'development']);
-  const testingMilestones = getMilestonesByPhases(['test', 'qa']);
-  const deploymentMilestones = getMilestonesByPhases(['deploy', 'infrastructure', 'release']);
-  
   return (
     <div className="w-full max-w-4xl mx-auto py-16 md:py-24">
-      <div className="mb-16">
-        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-slate-900 mb-6">Engineering Methodology</h2>
-        <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-          A transparent look into the engineering lifecycle. From initial problem discovery through architecture, implementation, and continuous iteration in production.
-        </p>
-      </div>
 
-      <div className="space-y-4">
-        {/* 1. Problem Discovery */}
-        <WorkflowStage phase="01. Problem Discovery" title="Defining the Challenge" defaultExpanded={true}>
-          <div className="prose prose-slate prose-lg max-w-none">
-            <p className="text-slate-600 leading-relaxed">{details.problem}</p>
+      {/* Section 1: Problem & Goals */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-20"
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Target className="w-5 h-5 text-primary" />
           </div>
-          {details.overview && (
-            <div className="mt-8 pt-8 border-t border-slate-100">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-3">Project Context</span>
-              <p className="text-slate-600 leading-relaxed text-sm">{details.overview}</p>
-            </div>
-          )}
-        </WorkflowStage>
-
-        {/* 2. Research & Requirements */}
-        <WorkflowStage phase="02. Research" title="Technical Feasibility & Requirements">
-          {details.research && (
-            <div className="prose prose-slate prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">{details.research}</p>
-            </div>
-          )}
-          
-          <div className="bg-slate-50 border border-slate-100 rounded-xl p-8">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-4">Core Engineering Requirements</span>
-            <ul className="space-y-4">
-              {details.goals.map((goal, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
-                  <p className="text-slate-700 leading-relaxed text-sm md:text-base">{goal}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {researchMilestones.map((m, i) => (
-            <ArtifactPanel key={i} type="impact" content={`${m.title}: ${m.description}`} />
-          ))}
-        </WorkflowStage>
-
-        {/* 3. Architecture */}
-        <WorkflowStage phase="03. Architecture" title="System Design & Data Flow">
-          <div className="prose prose-slate prose-lg max-w-none mb-10">
-            <p className="text-slate-600 leading-relaxed">{details.architecture.overview}</p>
-          </div>
-          
-          <ArchitecturePreview />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Presentation Layer</span>
-              <p className="text-slate-600 leading-relaxed text-sm">{details.architecture.client}</p>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">API & Business Logic</span>
-              <p className="text-slate-600 leading-relaxed text-sm">{details.architecture.server}</p>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Data Persistence</span>
-              <p className="text-slate-600 leading-relaxed text-sm">{details.architecture.database}</p>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">State & Sync</span>
-              <p className="text-slate-600 leading-relaxed text-sm">{details.architecture.state}</p>
-            </div>
-          </div>
-        </WorkflowStage>
-
-        {/* 4. Prototype & Design */}
-        {(prototypeMilestones.length > 0 || details.architecture.apiDesign) && (
-          <WorkflowStage phase="04. Prototype" title="Validation & API Design">
-            <div className="prose prose-slate prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">{details.architecture.apiDesign}</p>
-            </div>
-            {prototypeMilestones.map((m, i) => (
-              <div key={i} className="mb-6 last:mb-0">
-                <ArtifactPanel 
-                  type={m.imageUrl ? 'image' : m.techNotes ? 'code' : 'impact'} 
-                  content={m.techNotes || m.description} 
-                  imageUrl={m.imageUrl}
-                  imageAlt={m.imageAlt}
-                />
-              </div>
-            ))}
-          </WorkflowStage>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-black">The Problem</h2>
+        </div>
+        <p className="text-lg text-slate-600 leading-relaxed mb-8">{details.problem}</p>
+        
+        {details.overview && (
+          <p className="text-base text-slate-500 leading-relaxed mb-8">{details.overview}</p>
         )}
 
-        {/* 5. Implementation */}
-        <WorkflowStage phase="05. Implementation" title="Building the Core System">
-          <div className="prose prose-slate prose-lg max-w-none mb-8">
-            <p className="text-slate-600 leading-relaxed">{details.architecture.engineeringSummary}</p>
+        <div className="bg-slate-50 border border-slate-100 rounded-xl p-6">
+          <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Goals</h3>
+          <ul className="space-y-3">
+            {details.goals.map((goal, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
+                <p className="text-slate-700 text-sm leading-relaxed">{goal}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.section>
+
+      {/* Section 2: Architecture */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-20"
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Layers className="w-5 h-5 text-primary" />
           </div>
-
-          {implementationMilestones.length > 0 && (
-            <div className="mb-10 space-y-6">
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">Implementation Milestones</h4>
-              {implementationMilestones.map((m, i) => (
-                <div key={i} className="bg-slate-50 border border-slate-100 rounded-xl p-6">
-                  <h5 className="text-slate-900 font-medium tracking-tight mb-2">{m.title}</h5>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-4">{m.description}</p>
-                  {m.techNotes && <ArtifactPanel type="code" content={m.techNotes} />}
-                  {m.commitCount && <ArtifactPanel type="commit" content={m.commitCount} />}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {details.engineeringDecisions.length > 0 && (
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2 mb-6">Key Technical Decisions</h4>
-              {details.engineeringDecisions.map((decision, i) => (
-                <DecisionReference key={i} decision={decision} />
-              ))}
-            </div>
-          )}
-        </WorkflowStage>
-
-        {/* 6. Testing & Quality */}
-        <WorkflowStage phase="06. Testing" title="Validation & Edge Cases">
-          <div className="prose prose-slate prose-lg max-w-none mb-8">
-            <p className="text-slate-600 leading-relaxed">{details.results.testingAndQuality}</p>
-          </div>
-          {testingMilestones.map((m, i) => (
-            <div key={i} className="mb-6 last:mb-0">
-              <h5 className="text-slate-900 font-medium tracking-tight mb-2">{m.title}</h5>
-              <p className="text-slate-600 text-sm leading-relaxed">{m.description}</p>
-              {m.techNotes && <ArtifactPanel type="code" content={m.techNotes} />}
-            </div>
-          ))}
-        </WorkflowStage>
-
-        {/* 7. Deployment */}
-        <WorkflowStage phase="07. Deployment" title="Infrastructure & Release">
-          <div className="prose prose-slate prose-lg max-w-none mb-8">
-            <p className="text-slate-600 leading-relaxed">{details.architecture.deployment}</p>
-          </div>
-          {deploymentMilestones.map((m, i) => (
-            <div key={i} className="mb-6 last:mb-0 bg-slate-50 p-6 rounded-xl border border-slate-100">
-              <h5 className="text-slate-900 font-medium tracking-tight mb-2">{m.title}</h5>
-              <p className="text-slate-600 text-sm leading-relaxed">{m.description}</p>
-              {m.techNotes && <ArtifactPanel type="code" content={m.techNotes} />}
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-black">Architecture</h2>
+        </div>
+        <p className="text-lg text-slate-600 leading-relaxed mb-8">{details.architecture.overview}</p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { label: 'Frontend', value: details.architecture.client },
+            { label: 'Backend', value: details.architecture.server },
+            { label: 'Database', value: details.architecture.database },
+            { label: 'State', value: details.architecture.state },
+          ].map((item, i) => (
+            <div key={i} className="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">{item.label}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{item.value}</p>
             </div>
           ))}
-          <div className="mt-8 p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Scalability & Reliability</span>
-            <p className="text-slate-600 leading-relaxed text-sm">{details.results.scalabilityValidation}</p>
-          </div>
-        </WorkflowStage>
+        </div>
+      </motion.section>
 
-        {/* 8. Monitoring & Iteration */}
-        <WorkflowStage phase="08. Iteration" title="Monitoring & Production Metrics">
-          <IterationHistory results={details.results} />
-          {/* Include any 'Iteration' or 'Performance' milestones here */}
-          {details.development.filter(m => m.phase.toLowerCase().includes('iteration') || m.phase.toLowerCase().includes('performance')).map((m, i) => (
-            <div key={i} className="mt-6">
-              <ArtifactPanel type="impact" content={`${m.title}: ${m.description}`} />
+      {/* Section 3: Key Decisions */}
+      {details.engineeringDecisions.length > 0 && (
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-20"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+              <Zap className="w-5 h-5 text-primary" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-black">Key Decisions</h2>
+          </div>
+          <p className="text-base text-slate-500 leading-relaxed mb-8">
+            {details.architecture.engineeringSummary}
+          </p>
+          <div className="space-y-4">
+            {details.engineeringDecisions.slice(0, 3).map((decision, i) => (
+              <DecisionReference key={i} decision={decision} />
+            ))}
+          </div>
+        </motion.section>
+      )}
+
+      {/* Section 4: Results */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-16"
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <TrendingUp className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-black">Results</h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {[...details.results.performanceMetrics.slice(0, 2), ...details.results.reliabilityMetrics.slice(0, 2)].map((metric, idx) => (
+            <div key={idx} className="bg-slate-50 border border-slate-100 p-5 rounded-xl text-center">
+              <div className="text-2xl font-bold text-primary mb-1">{metric.value}</div>
+              <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{metric.label}</div>
             </div>
           ))}
-        </WorkflowStage>
+        </div>
 
-        {/* 9. Retrospective */}
-        <WorkflowStage phase="09. Retrospective" title="Reflection & Future Engineering">
-          <div className="prose prose-slate prose-lg max-w-none mb-8">
-            <p className="text-slate-600 leading-relaxed">{details.results.conclusion}</p>
+        <p className="text-base text-slate-600 leading-relaxed mb-6">{details.results.conclusion}</p>
+        
+        {/* Lessons & Future */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-slate-50 border border-slate-100 rounded-xl p-6">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Lessons Learned</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">{details.lessons}</p>
           </div>
-          <RetrospectiveCard lessons={details.lessons} future={details.future} />
-        </WorkflowStage>
+          <div className="bg-slate-50 border border-slate-100 rounded-xl p-6">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">Future Plans</h3>
+            <p className="text-sm text-slate-600 leading-relaxed">{details.future}</p>
+          </div>
+        </div>
+      </motion.section>
 
-      </div>
-
-      <div className="mt-24 pt-16 border-t border-slate-100">
-        <ProjectRelationshipPanel project={project} />
-      </div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function FeaturedAchievement({ achievement }: FeaturedAchievement
         >
            <div className="w-full xl:w-1/2 flex flex-col justify-center">
              <div className="flex items-center gap-3 mb-8">
-               <span className="flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-widest rounded-full">
+               <span className="flex items-center gap-2 px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">
                  <Trophy className="w-3.5 h-3.5" /> Featured Achievement
                </span>
                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">

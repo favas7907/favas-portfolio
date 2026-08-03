@@ -2,12 +2,16 @@ import { motion } from 'motion/react';
 import { TechnologyProfile } from '../../data/technologies';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TechIcon from '../TechIcon';
+import { getTechColor } from '../../utils/techIcons';
 
 interface Props {
   profile: TechnologyProfile;
 }
 
 export default function TechnologyHeader({ profile }: Props) {
+  const brandColor = getTechColor(profile.name);
+  
   return (
     <div className="pt-32 pb-16 bg-slate-50 border-b border-slate-100">
       <div className="container-custom">
@@ -30,9 +34,17 @@ export default function TechnologyHeader({ profile }: Props) {
               Technology Profile
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-slate-900 mb-8 leading-[1.1]">
-            {profile.name}
-          </h1>
+          <div className="flex items-center gap-5 mb-8">
+            <div 
+              className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center shrink-0"
+              style={{ backgroundColor: `${brandColor}12` }}
+            >
+              <TechIcon name={profile.name} size={44} />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-slate-900 leading-[1.1]">
+              {profile.name}
+            </h1>
+          </div>
           <p className="text-xl md:text-2xl font-light text-slate-600 leading-relaxed max-w-3xl">
             {profile.overview}
           </p>

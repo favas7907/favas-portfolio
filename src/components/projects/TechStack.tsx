@@ -16,7 +16,7 @@ export default function TechStack({ tech, limit }: TechStackProps) {
         <Link 
           key={idx}
           to="/skills"
-          className="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-600 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 text-xs font-medium rounded-lg whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          className="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-600 hover:text-primary hover:border-primary/20 hover:bg-primary/5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           title={`View ${t} in Skills`}
         >
           {t}
@@ -25,7 +25,7 @@ export default function TechStack({ tech, limit }: TechStackProps) {
       {remaining > 0 && (
         <Link 
           to="/skills"
-          className="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 text-xs font-medium rounded-lg whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          className="px-3 py-1.5 bg-slate-50 border border-slate-100 text-slate-500 hover:text-primary hover:border-primary/20 hover:bg-primary/5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           title={`View remaining ${remaining} technologies in Skills`}
         >
           +{remaining}

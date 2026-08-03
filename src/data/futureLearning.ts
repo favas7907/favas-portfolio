@@ -82,7 +82,7 @@ export const DOMAIN_FUTURE_LEARNING: Record<string, FutureLearningGoal[]> = {
       horizon: 'Current Focus',
       why: 'As application state becomes heavily distributed, understanding the underlying consensus mechanisms prevents catastrophic failure modes.',
       problemSolved: 'Preventing split-brain scenarios and ensuring high availability in geo-distributed microservices.',
-      longTermVision: 'Architecting global-scale systems capable of withstanding entire availability zone failures seamlessly.',
+      longTermVision: "Building systems that can handle real traffic and don't go down when one server has a bad day.",
       dependencies: [
         { id: 'go', name: 'Go', url: '/skills/languages' },
         { id: 'grpc', name: 'gRPC' }

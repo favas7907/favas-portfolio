@@ -5,68 +5,21 @@ import { ArrowRight } from 'lucide-react';
 
 const JOURNEY_MILESTONES: TimelineItemData[] = [
   {
-    id: 'curiosity',
-    date: 'The Spark',
-    title: 'Discovering the Invisible Logic',
-    summary: (
-      <p>
-        My fascination with engineering began not with writing code, but with dismantling it. I spent hours exploring hidden directories on my first computer, driven by a quiet need to understand the underlying systems that governed the software I used every day.
-      </p>
-    ),
-    content: (
-      <>
-        <p>
-          Before I understood what programming was, I was obsessed with the idea that every piece of technology was built on a series of logical instructions. I was rarely satisfied simply consuming software; I wanted to pull back the curtain. That early curiosity—the desire to see how the pieces fit together—became the absolute foundation of my engineering career.
-        </p>
-      </>
-    ),
-    reflection: (
-      <p>
-        I learned early on that technology is not magic; it is architecture. This realization removed the intimidation of complex systems and replaced it with a methodical desire to learn how they are constructed.
-      </p>
-    )
-  },
-  {
-    id: 'learning',
-    date: 'Phase 01',
-    title: 'From Observation to Instruction',
-    summary: (
-      <p>
-        The transition from observing systems to manipulating them began with writing small, isolated scripts. It was my first experience giving a machine precise instructions and finding immediate satisfaction in its perfect execution.
-      </p>
-    ),
-    content: (
-      <>
-        <p>
-          Initially, I used code merely to automate repetitive tasks on my own machine. I was introduced to the concept of variables, loops, and basic logic. It was purely experimental. As I learned to string these scripts together, I realized that writing code was not just about solving isolated puzzles—it was about building environments.
-        </p>
-        <p>
-          I began exploring how different languages handled logic differently, which naturally led me toward web technologies where I could build interfaces for my logic.
-        </p>
-      </>
-    ),
-    reflection: (
-      <p>
-        This phase taught me the value of deterministic logic. If a script failed, it was because my instructions were flawed, not the machine. It instilled a deep sense of ownership over my code that I carry into every project today.
-      </p>
-    )
-  },
-  {
     id: 'experimentation',
     date: 'Phase 02',
     title: 'Embracing Component Architecture',
     summary: (
       <p>
-        As my projects grew in scope, managing global state and direct DOM manipulation became chaotic. I needed a structured way to build interfaces, leading to a fundamental shift in how I approached frontend engineering.
+        As my projects got bigger, plain JS and spaghetti DOM code stopped working. I needed a better way to organize UI, which led me to React and component-based thinking.
       </p>
     ),
     content: (
       <>
         <p>
-          I adopted React not simply as a tool, but as a mental model. It forced me to stop thinking about a webpage as a single document and start thinking about it as a system of independent, reusable components. I learned to manage state predictably and isolate side effects.
+          React clicked for me because it made me think about UIs as systems, not pages. I started building reusable components, managing state properly, and actually thinking about data flow before writing code.
         </p>
         <p>
-          This was also when I began focusing heavily on TypeScript. I realized that catching errors at compile time wasn't just a convenience; it was a structural necessity for building reliable software that could be safely refactored.
+          This was also when TypeScript stopped feeling like extra work and started feeling necessary. Catching bugs before they hit the browser? Yes please.
         </p>
         <div className="pt-4">
           <Link to="/skills" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 hover:border-slate-900 transition-colors pb-1">
@@ -77,7 +30,7 @@ const JOURNEY_MILESTONES: TimelineItemData[] = [
     ),
     reflection: (
       <p>
-        Architecture matters just as much on the client as it does on the server. A poorly structured frontend will eventually collapse under its own weight, no matter how clean the UI appears.
+        A messy frontend will eventually bite you, no matter how good the UI looks on the surface. Structure matters.
       </p>
     )
   },
@@ -87,16 +40,16 @@ const JOURNEY_MILESTONES: TimelineItemData[] = [
     title: 'The Production Reality Check',
     summary: (
       <p>
-        Engineering a feature to work on localhost is relatively simple. Engineering a system to survive in a production environment, handled by unpredictable users, is an entirely different discipline.
+        Making something work on localhost is easy. Making it survive real users on a real server is a completely different story.
       </p>
     ),
     content: (
       <>
         <p>
-          My early full-stack applications functioned perfectly in isolation. However, deploying them exposed me to the harsh realities of network latency, unhandled exceptions, and concurrent state mutations. I experienced firsthand how fragile a system can be when it relies on optimistic assumptions.
+          My first deployed apps broke in ways I never expected — weird edge cases, slow queries, auth bugs. I learned quickly that "it works on my machine" means absolutely nothing.
         </p>
         <p>
-          I had to rethink my approach entirely. I stopped focusing purely on syntax and feature delivery, and started studying system resilience, database indexing, and secure authentication flows. I learned that real engineering means anticipating failure long before it happens.
+          That's when I started actually caring about things like database indexing, error handling, and secure auth flows. It stopped being about just shipping features and started being about shipping things that don't break.
         </p>
         <div className="pt-4">
           <Link to="/projects" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 hover:border-slate-900 transition-colors pb-1">
@@ -107,7 +60,7 @@ const JOURNEY_MILESTONES: TimelineItemData[] = [
     ),
     reflection: (
       <p>
-        Failure in production is the greatest teacher. It shifted my mindset from "How do I build this?" to "How will this break, and how do I prevent it?" This fundamentally changed my definition of 'done'.
+        Production bugs taught me more than any tutorial. My question went from "how do I build this?" to "how will this break?"
       </p>
     )
   },
@@ -117,16 +70,16 @@ const JOURNEY_MILESTONES: TimelineItemData[] = [
     title: 'Decentralization and Leadership',
     summary: (
       <p>
-        Transitioning from building solo projects to architecting solutions in high-pressure, collaborative environments. This required a shift from writing clever code to writing communicative code.
+         Moving from solo projects to working with other people. Writing code that teammates can actually read turned out to be way harder than writing clever code.
       </p>
     ),
     content: (
       <>
         <p>
-          Participating in global challenges pushed me far beyond my comfort zone. It was no longer just about technical execution; it was about architecture, delegation, and rapid decision-making. We faced the challenge of implementing complex cryptographic constraints (like zero-knowledge proofs) while simultaneously delivering a seamless user experience within a highly constrained timeframe.
+          Hackathons pushed me way outside my comfort zone. It wasn't just about coding anymore — it was about making quick architectural decisions, dividing work, and integrating complex pieces (like ZK proofs) under insane time pressure.
         </p>
         <p>
-          I took on the role of Lead Architect, which meant my primary responsibility was ensuring that the different pieces of the system—smart contracts, backend services, and the frontend interface—could integrate cleanly. I learned that technical debt accrued during early architecture phases becomes exponentially more expensive as deadlines approach.
+           I ended up doing a lot of the architecture planning, which meant figuring out how the smart contracts, backend, and frontend would all talk to each other. Shortcut decisions made on day one always came back to haunt us on day three.
         </p>
         <div className="pt-4">
           <Link to="/achievements/global-hackathon-2024" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-slate-900 border-b border-slate-300 hover:border-slate-900 transition-colors pb-1">
@@ -137,7 +90,7 @@ const JOURNEY_MILESTONES: TimelineItemData[] = [
     ),
     reflection: (
       <p>
-        Leadership in engineering is not about making all the technical decisions; it is about creating an environment where the right technical decisions can be made by the team. Clarity in communication is just as critical as clarity in code.
+        Leading a tech team isn't about making all the decisions — it's about making sure the team has what they need to make good ones. Clear communication beats clever code.
       </p>
     )
   },
@@ -147,22 +100,22 @@ const JOURNEY_MILESTONES: TimelineItemData[] = [
     title: 'Pursuing Craftsmanship',
     summary: (
       <p>
-        Today, my focus has shifted from simply building functional software to engineering reliable, secure, and performant systems. I am motivated by the pursuit of digital craftsmanship.
+        Right now I'm less interested in just making things work and more interested in understanding why they work. Building stuff that's actually reliable and secure, not just functional.
       </p>
     ),
     content: (
       <>
         <p>
-          I am currently deepening my expertise in distributed systems, advanced cybersecurity principles, and AI integrations. I am no longer satisfied with assembling libraries; I want to understand the underlying protocols and memory management. 
+          I'm going deeper into distributed systems, cybersecurity, and AI integration. I'm past the phase of just plugging libraries together — I want to understand the protocols and internals.
         </p>
         <p>
-          The journey from writing isolated scripts to designing scalable architecture has fundamentally shaped my philosophy. I believe that software should respect the user's time and privacy, operating seamlessly without demanding unnecessary attention.
+          Looking back, the biggest shift has been learning to write code for other people, not just for myself. Software should be something users barely notice because it just works.
         </p>
       </>
     ),
     reflection: (
       <p>
-        Growth as an engineer is asymptotic. The more you learn, the more you realize how much you do not know. True craftsmanship is embracing that continuous, endless refinement.
+        The more I learn, the more I realize how much I don't know. And honestly, that's the best part.
       </p>
     )
   }
@@ -181,7 +134,7 @@ export default function AboutJourney() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="mb-16 md:mb-24"
             >
-              <h2 className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                 Growth Journey
               </h2>
               <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-900 tracking-tight mb-8">

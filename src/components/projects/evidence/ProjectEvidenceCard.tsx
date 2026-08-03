@@ -27,7 +27,7 @@ export default function ProjectEvidenceCard({ project, index }: ProjectEvidenceC
       >
         <div className="flex-1 max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
-            <span className="px-2.5 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-widest rounded-full">
+            <span className="px-2.5 py-1 bg-primary/5 text-primary-dark text-[10px] font-bold uppercase tracking-widest rounded-full">
               {project.tech[0] || 'Engineering'}
             </span>
             <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
@@ -39,7 +39,7 @@ export default function ProjectEvidenceCard({ project, index }: ProjectEvidenceC
             </span>
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+          <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-3 group-hover:text-primary transition-colors">
             {project.title}
           </h3>
           
@@ -69,7 +69,7 @@ export default function ProjectEvidenceCard({ project, index }: ProjectEvidenceC
             )}
           </div>
           
-          <div className={`p-3 rounded-full bg-slate-50 text-slate-400 transition-transform duration-500 ${isExpanded ? 'rotate-180 bg-blue-50 text-blue-600' : ''}`}>
+          <div className={`p-3 rounded-full bg-slate-50 text-slate-400 transition-transform duration-500 ${isExpanded ? 'rotate-180 bg-primary/5 text-primary' : ''}`}>
             <ChevronDown className="w-5 h-5" />
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function ProjectEvidenceCard({ project, index }: ProjectEvidenceC
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
                 <div>
                   <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-900 mb-4">
-                    <Target className="w-4 h-4 text-blue-600" />
+                    <Target className="w-4 h-4 text-primary" />
                     Engineering Problem
                   </h4>
                   <p className="text-base text-slate-600 font-light leading-relaxed">
@@ -100,7 +100,7 @@ export default function ProjectEvidenceCard({ project, index }: ProjectEvidenceC
                 </div>
                 <div>
                   <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-900 mb-4">
-                    <ShieldCheck className="w-4 h-4 text-blue-600" />
+                    <ShieldCheck className="w-4 h-4 text-primary" />
                     Core Architecture
                   </h4>
                   <p className="text-base text-slate-600 font-light leading-relaxed">
@@ -134,7 +134,7 @@ export default function ProjectEvidenceCard({ project, index }: ProjectEvidenceC
               {/* Measurable Outcomes */}
               <div>
                 <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-900 mb-6">
-                  <Activity className="w-4 h-4 text-blue-600" />
+                  <Activity className="w-4 h-4 text-primary" />
                   Measurable Impact
                 </h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

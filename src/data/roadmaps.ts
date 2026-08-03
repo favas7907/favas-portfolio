@@ -115,7 +115,7 @@ export const ROADMAP_DOMAINS: RoadmapDomain[] = [
     technologyCount: 15,
     estimatedResources: 25,
     relatedProjects: [],
-    overview: 'Ensuring software runs reliably and scales seamlessly in production environments.',
+    overview: 'Getting apps deployed and keeping them running without headaches.',
     learningPathSummary: 'Mastering container orchestration and serverless architectures.',
     coreConcepts: ['Docker & Kubernetes', 'Infrastructure as Code (Terraform)', 'CI/CD Pipelines'],
     technologies: [],

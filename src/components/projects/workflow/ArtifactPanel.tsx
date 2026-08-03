@@ -21,10 +21,10 @@ export default function ArtifactPanel({ type, content, imageUrl, imageAlt }: Art
       )}
       
       <div className="p-6 flex items-start gap-4">
-        {type === 'code' && <FileCode2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />}
+        {type === 'code' && <FileCode2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />}
         {type === 'image' && <ImageIcon className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />}
-        {type === 'commit' && <GitCommit className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />}
-        {type === 'impact' && <Target className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />}
+        {type === 'commit' && <GitCommit className="w-5 h-5 text-primary/70 shrink-0 mt-0.5" />}
+        {type === 'impact' && <Target className="w-5 h-5 text-primary shrink-0 mt-0.5" />}
         
         <div className="w-full">
           {type === 'code' ? (

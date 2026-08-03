@@ -1,71 +1,100 @@
-import { motion } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Code2, Shield, Layers, Sparkles } from 'lucide-react';
+import { useRef } from 'react';
+
+const STATS = [
+  { value: '20+', label: 'Projects Shipped', icon: Code2, accent: true },
+  { value: 'Full Stack', label: 'Engineering Focus', icon: Layers, accent: false },
+  { value: 'B.Tech', label: 'CS Engineering', icon: Shield, accent: false },
+  { value: 'AI · Web3', label: 'Deep Explorations', icon: Sparkles, accent: true },
+];
 
 export default function AboutPreview() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <section className="py-24 md:py-32 lg:py-40 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-32 lg:py-40 bg-slate-50 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/[0.02] rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/[0.02] rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" aria-hidden="true" />
+      
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
           
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-3 lg:col-start-2"
+            className="lg:col-span-5"
           >
-            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
-              Identity
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary mb-6">
+              <motion.span 
+                className="w-8 h-px bg-primary"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                style={{ transformOrigin: 'left' }}
+              />
+              About Me
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-black tracking-tight leading-[1.15] mb-6">
+              I care about how software is{' '}
+              <span className="text-gradient-primary">built</span>,{' '}
+              not just that it works.
             </h2>
+            <p className="text-lg text-slate-500 leading-relaxed mb-10">
+              I spend a lot of time thinking about the structure underneath — clean APIs, sensible data flow, code that the next person can actually read. It's the boring stuff that makes the interesting stuff possible.
+            </p>
+            
+            <Link 
+              to="/about" 
+              className="btn-outline w-fit group"
+            >
+              Read My Story
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
           </motion.div>
 
-          <div className="lg:col-span-7 flex flex-col items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-slate-900 tracking-tight leading-[1.3] mb-8 max-w-3xl">
-                I build software with a mindset rooted in architecture and security. A premium interface is meaningless if the underlying system is fragile.
-              </h3>
-              
-              <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed mb-16 max-w-2xl">
-                Engineering goes beyond writing code. It requires anticipating growth, handling edge cases gracefully, and ensuring that every product feels effortless to the people using it. My goal is to create resilient platforms that scale without sacrificing craftsmanship.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 mb-16 w-full max-w-2xl"
-            >
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">Architecture First</h4>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Designing scalable foundations that support complex business logic and future iterations gracefully.</p>
-              </div>
-              <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">Security & Precision</h4>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Implementing robust protections and secure data handling to ensure trust is never compromised.</p>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Link 
-                to="/about" 
-                className="group inline-flex items-center text-sm font-bold text-slate-900 uppercase tracking-[0.15em] pb-2 border-b border-slate-300 hover:border-slate-900 transition-colors duration-300"
-              >
-                Read the full story <ArrowRight className="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </motion.div>
+          <div ref={ref} className="lg:col-span-7 lg:col-start-6">
+            <div className="grid grid-cols-2 gap-4">
+              {STATS.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                    animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    className="group relative bg-white rounded-2xl border border-slate-200/80 p-6 lg:p-7 hover-lift cursor-default"
+                  >
+                    {/* Hover gradient border */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    
+                    <div className="relative">
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300 ${
+                        stat.accent 
+                          ? 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white' 
+                          : 'bg-slate-100 text-slate-500 group-hover:bg-accent/10 group-hover:text-accent'
+                      }`}>
+                        <Icon className="w-4.5 h-4.5" />
+                      </div>
+                      <span className={`text-2xl lg:text-3xl font-bold mb-1.5 block tracking-tight transition-colors duration-300 ${
+                        stat.accent ? 'text-primary' : 'text-black'
+                      }`}>
+                        {stat.value}
+                      </span>
+                      <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                        {stat.label}
+                      </span>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
           
         </div>

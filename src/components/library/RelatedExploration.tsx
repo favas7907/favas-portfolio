@@ -14,8 +14,8 @@ export default function RelatedExploration() {
           className="group p-6 bg-slate-50 border border-slate-100 rounded-xl hover:border-slate-200 hover:bg-slate-100 transition-all duration-300"
         >
           <div className="flex items-center justify-between mb-4">
-            <Code className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
-            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+            <Code className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" />
+            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
           </div>
           <h3 className="text-base font-medium text-slate-900 mb-2">Engineering Projects</h3>
           <p className="text-sm text-slate-500 font-light leading-relaxed">View the practical applications of these concepts in production.</p>
@@ -26,8 +26,8 @@ export default function RelatedExploration() {
           className="group p-6 bg-slate-50 border border-slate-100 rounded-xl hover:border-slate-200 hover:bg-slate-100 transition-all duration-300"
         >
           <div className="flex items-center justify-between mb-4">
-            <Terminal className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
-            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+            <Terminal className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" />
+            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
           </div>
           <h3 className="text-base font-medium text-slate-900 mb-2">Technical Skills</h3>
           <p className="text-sm text-slate-500 font-light leading-relaxed">Explore the core technologies that power my development stack.</p>
@@ -38,8 +38,8 @@ export default function RelatedExploration() {
           className="group p-6 bg-slate-50 border border-slate-100 rounded-xl hover:border-slate-200 hover:bg-slate-100 transition-all duration-300"
         >
           <div className="flex items-center justify-between mb-4">
-            <Network className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
-            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+            <Network className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" />
+            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
           </div>
           <h3 className="text-base font-medium text-slate-900 mb-2">Experience & Timeline</h3>
           <p className="text-sm text-slate-500 font-light leading-relaxed">See how this entry fits into my broader professional journey.</p>
@@ -50,8 +50,8 @@ export default function RelatedExploration() {
           className="group p-6 bg-slate-50 border border-slate-100 rounded-xl hover:border-slate-200 hover:bg-slate-100 transition-all duration-300"
         >
           <div className="flex items-center justify-between mb-4">
-            <Send className="w-5 h-5 text-slate-400 group-hover:text-blue-600 transition-colors" />
-            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+            <Send className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors" />
+            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
           </div>
           <h3 className="text-base font-medium text-slate-900 mb-2">Get in Touch</h3>
           <p className="text-sm text-slate-500 font-light leading-relaxed">Start a conversation about a potential collaboration or role.</p>

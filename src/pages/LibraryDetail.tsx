@@ -23,7 +23,7 @@ export default function LibraryDetail() {
         <p className="text-slate-500 mb-8">The archive entry you are looking for does not exist or has been moved.</p>
         <button 
           onClick={() => navigate('/library')}
-          className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-2"
+          className="text-sm font-medium text-primary hover:text-primary-dark flex items-center gap-2"
         >
           <ArrowLeft className="w-4 h-4" />
           Return to Library
@@ -50,7 +50,7 @@ export default function LibraryDetail() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="mb-6 flex flex-wrap items-center gap-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded-full">
               {item.category}
             </span>
             <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300">
@@ -92,7 +92,7 @@ export default function LibraryDetail() {
               
               <section>
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span className="w-2 h-2 rounded-full bg-primary"></span>
                   Context
                 </h2>
                 <div className="text-base sm:text-lg text-slate-600 font-light leading-relaxed prose prose-slate">
@@ -103,7 +103,7 @@ export default function LibraryDetail() {
               {item.myContribution && (
                 <section>
                   <h2 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-primary"></span>
                     My Contribution
                   </h2>
                   <div className="text-base sm:text-lg text-slate-600 font-light leading-relaxed prose prose-slate">
@@ -115,7 +115,7 @@ export default function LibraryDetail() {
               {item.whatILearned && (
                 <section>
                   <h2 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-primary"></span>
                     What I Learned
                   </h2>
                   <div className="text-base sm:text-lg text-slate-600 font-light leading-relaxed prose prose-slate">
@@ -164,9 +164,9 @@ export default function LibraryDetail() {
                           href={link.url} 
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/link inline-flex items-center text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+                          className="group/link inline-flex items-center text-sm font-medium text-slate-600 hover:text-primary transition-colors"
                         >
-                          <ExternalLink className="w-4 h-4 mr-3 text-slate-400 group-hover/link:text-blue-600 transition-colors" />
+                          <ExternalLink className="w-4 h-4 mr-3 text-slate-400 group-hover/link:text-primary transition-colors" />
                           {link.label}
                           <ArrowRight className="w-3 h-3 ml-2 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
                         </a>

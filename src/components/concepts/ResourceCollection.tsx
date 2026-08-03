@@ -27,17 +27,17 @@ export default function ResourceCollection({ resources }: ResourceCollectionProp
               className="group flex items-start gap-3 p-4 rounded-xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-slate-200 transition-all"
             >
               <div className="mt-0.5">
-                <BookOpen className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
+                <BookOpen className="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" />
               </div>
               <div className="flex-1">
-                <span className="block text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors mb-1">
+                <span className="block text-sm font-medium text-slate-700 group-hover:text-primary transition-colors mb-1">
                   {resource.title}
                 </span>
                 <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">
                   {resource.type}
                 </span>
               </div>
-              <ExternalLink className="w-4 h-4 text-slate-300 group-hover:text-blue-400 transition-colors" />
+              <ExternalLink className="w-4 h-4 text-slate-300 group-hover:text-primary/70 transition-colors" />
             </a>
           </li>
         ))}

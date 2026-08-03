@@ -34,7 +34,7 @@ export default function AchievementTimeline() {
                 transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="relative pl-8 md:pl-16"
               >
-                <div className="absolute w-3 h-3 bg-white border-2 border-blue-600 rounded-full -left-[6.5px] top-1.5" />
+                <div className="absolute w-3 h-3 bg-white border-2 border-primary rounded-full -left-[6.5px] top-1.5" />
                 
                 <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
                   <div className="md:w-32 shrink-0 pt-0.5">
@@ -53,7 +53,7 @@ export default function AchievementTimeline() {
                     </p>
                     <Link 
                       to={`/achievements/${achievement.id}`}
-                      className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-blue-600 hover:text-blue-700 transition-colors"
+                      className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary-dark transition-colors"
                     >
                       View Details
                     </Link>

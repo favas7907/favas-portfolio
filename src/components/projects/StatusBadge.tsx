@@ -12,7 +12,7 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
         return 'bg-emerald-500';
       case 'active':
       case 'in development':
-        return 'bg-blue-500';
+        return 'bg-primary/50';
       case 'archived':
       case 'experimental':
       case 'research':

@@ -11,7 +11,7 @@ export default function WhyIUseItSection({ whyIUseIt }: { whyIUseIt: TechnologyP
           <div className="space-y-10">
             <div>
               <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
-                <Shield className="w-4 h-4 text-blue-500" /> The Engineering Choice
+                <Shield className="w-4 h-4 text-primary" /> The Engineering Choice
               </h3>
               <p className="text-lg text-slate-700 leading-relaxed font-medium">
                 {whyIUseIt.whyChosen}

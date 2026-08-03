@@ -121,5 +121,5 @@ export interface Project {
   timeline: string;
   domain: string;
   status: string;
-  details: ProjectDetailData;
+  details?: ProjectDetailData;
 }

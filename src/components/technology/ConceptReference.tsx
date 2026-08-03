@@ -27,7 +27,7 @@ export default function ConceptReference({ concepts }: { concepts: string[] }) {
 
           <Link 
             to="/concepts"
-            className="group inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+            className="group inline-flex items-center text-sm font-medium text-primary hover:text-primary-dark transition-colors"
           >
             Explore all Engineering Concepts
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

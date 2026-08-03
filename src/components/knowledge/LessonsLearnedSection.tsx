@@ -54,7 +54,7 @@ export default function LessonsLearnedSection() {
                   <p className="text-sm text-slate-600 font-light leading-relaxed">{lesson.becameEasier}</p>
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-2">How I Would Redesign It</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">How I Would Redesign It</h4>
                   <p className="text-sm text-slate-600 font-light leading-relaxed">{lesson.redesign}</p>
                 </div>
               </div>

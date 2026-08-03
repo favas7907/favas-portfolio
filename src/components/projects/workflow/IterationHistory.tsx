@@ -16,7 +16,7 @@ export default function IterationHistory({ results }: IterationHistoryProps) {
             <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">{metric.label}</span>
             <div className="flex items-end gap-3 mb-2">
               <span className="text-3xl font-medium tracking-tight text-slate-900 leading-none">{metric.value}</span>
-              {metric.trend === 'up' && <ArrowUpRight className="w-5 h-5 text-blue-500 mb-1" />}
+              {metric.trend === 'up' && <ArrowUpRight className="w-5 h-5 text-primary mb-1" />}
               {metric.trend === 'down' && <ArrowDownRight className="w-5 h-5 text-slate-500 mb-1" />}
               {metric.trend === 'neutral' && <Minus className="w-5 h-5 text-slate-400 mb-1" />}
             </div>
@@ -31,7 +31,7 @@ export default function IterationHistory({ results }: IterationHistoryProps) {
         <ul className="space-y-4">
           {results.keyOutcomes.map((outcome, i) => (
             <li key={i} className="flex items-start gap-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0" />
               <p className="text-slate-700 leading-relaxed text-sm">{outcome}</p>
             </li>
           ))}

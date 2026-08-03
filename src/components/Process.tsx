@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Search, PenTool, Layout, Layers, Code, CheckCircle, Rocket, RefreshCw } from 'lucide-react';
 
 const PROCESS_STEPS = [
-  { name: 'Research', icon: Search, description: 'Understanding the domain and problem space.' },
-  { name: 'Planning', icon: PenTool, description: 'Defining architecture and project scope.' },
-  { name: 'Design', icon: Layout, description: 'Crafting user experiences and interface guidelines.' },
-  { name: 'Architecture', icon: Layers, description: 'Structuring scalable and secure foundations.' },
-  { name: 'Development', icon: Code, description: 'Writing clean, maintainable, and efficient code.' },
-  { name: 'Testing', icon: CheckCircle, description: 'Ensuring absolute reliability and security.' },
-  { name: 'Deployment', icon: Rocket, description: 'Shipping robust solutions to production.' },
-  { name: 'Iteration', icon: RefreshCw, description: 'Refining based on real-world feedback.' }
+  { name: 'Research', icon: Search, description: 'Figuring out what the actual problem is.' },
+  { name: 'Planning', icon: PenTool, description: 'Deciding how things should be built.' },
+  { name: 'Design', icon: Layout, description: 'Sketching out the UI and user flows.' },
+  { name: 'Architecture', icon: Layers, description: 'Setting up the codebase structure.' },
+  { name: 'Development', icon: Code, description: 'Writing the actual code.' },
+  { name: 'Testing', icon: CheckCircle, description: 'Making sure things don\'t break.' },
+  { name: 'Deployment', icon: Rocket, description: 'Getting it live and running.' },
+  { name: 'Iteration', icon: RefreshCw, description: 'Improving based on real feedback.' }
 ];
 
 export default function Process() {
@@ -63,7 +63,7 @@ export default function Process() {
           className="text-center"
         >
           <Link to="/about" className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-[11px] rounded-xl hover:bg-primary hover:text-white transition-all duration-300 shadow-sm group">
-            Explore My Engineering Philosophy
+            More About How I Work
             <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" />
           </Link>
         </motion.div>

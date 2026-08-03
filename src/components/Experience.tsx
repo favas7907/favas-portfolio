@@ -80,11 +80,11 @@ function ExperienceNode({
               {item.period}
             </span>
             <span className="w-1 h-1 rounded-full bg-slate-200"></span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded-full">
               {item.category}
             </span>
           </div>
-          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors duration-300 mb-2">
+          <h3 className="text-xl md:text-2xl font-medium tracking-tight text-slate-900 group-hover:text-primary transition-colors duration-300 mb-2">
             {item.role}
           </h3>
           <p className="text-base text-slate-500 font-medium mb-3">
@@ -150,7 +150,7 @@ function ExperienceNode({
                 <div className="space-y-8">
                   <div className="p-6 bg-slate-50 rounded-xl border border-slate-100">
                     <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-900 mb-3 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                       The Impact
                     </h4>
                     <div className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
@@ -183,7 +183,7 @@ function ExperienceNode({
                           <Link 
                             key={i}
                             to={link.url}
-                            className="group/link inline-flex items-center text-xs font-bold uppercase tracking-widest text-slate-900 hover:text-blue-600 transition-colors"
+                            className="group/link inline-flex items-center text-xs font-bold uppercase tracking-widest text-slate-900 hover:text-primary transition-colors"
                           >
                             {link.label}
                             <ArrowRight className="w-3 h-3 ml-2 opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />

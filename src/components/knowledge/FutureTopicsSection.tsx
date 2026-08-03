@@ -35,7 +35,7 @@ export default function FutureTopicsSection() {
             
             <Link 
               to={`/skills/${topic.roadmapId}`}
-              className="shrink-0 inline-flex items-center text-sm font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-xl transition-colors group"
+              className="shrink-0 inline-flex items-center text-sm font-medium text-primary bg-primary/5 hover:bg-primary/10 px-4 py-2 rounded-xl transition-colors group"
             >
               View Roadmap
               <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />

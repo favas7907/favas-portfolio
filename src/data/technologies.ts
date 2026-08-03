@@ -64,7 +64,7 @@ export const TECHNOLOGIES: TechnologyProfile[] = [
         'Lack of component reusability across different domains.',
         'Tight coupling between markup and logic.'
       ],
-      whyChosen: 'React’s ecosystem, mature patterns, and component-driven mental model make it unmatched for building robust web applications. Its massive community ensures that edge cases have been solved.',
+      whyChosen: 'React has the biggest ecosystem, tons of libraries, and a mental model that just makes sense for complex UIs. When I get stuck, someone has already solved it.',
       whenToUse: 'Applications requiring complex, highly interactive interfaces, complex state management, or a large ecosystem of reusable components.',
       whenToAvoid: 'Static content sites, landing pages with minimal interactivity, or environments where bundle size constraints are extreme.',
       alternativesEvaluated: ['Vue', 'Svelte', 'SolidJS']
@@ -140,14 +140,14 @@ export const TECHNOLOGIES: TechnologyProfile[] = [
   {
     id: 'nextjs',
     name: 'Next.js',
-    overview: 'Next.js is my primary framework for production React applications. It bridges the gap between client and server, providing robust data fetching, hybrid rendering strategies, and optimized edge delivery.',
+    overview: 'Next.js is what I use when I need a full-stack React app. SSR, API routes, file-based routing — it handles a lot of the boring stuff so I can focus on the actual features.',
     whyIUseIt: {
       problemsSolved: [
         'Poor SEO and initial load times of traditional single-page applications.',
         'Complex webpack configurations and routing boilerplate.',
         'Fragmentation between backend API routes and frontend codebase.'
       ],
-      whyChosen: 'Next.js provides a comprehensive, opinionated structure that allows me to focus on business logic rather than infrastructure. The App Router paradigm heavily aligns with the future of React.',
+      whyChosen: "Next.js gives me a solid structure out of the box. I don't have to set up routing, SSR, or API endpoints from scratch. The App Router is where React is headed.",
       whenToUse: 'Full-stack web applications, e-commerce platforms, or applications requiring strong SEO and fast time-to-first-byte.',
       whenToAvoid: 'Heavy dashboard applications that live purely behind authentication, where the complexity of SSR outweighs the benefits.',
       alternativesEvaluated: ['Remix', 'Astro']
@@ -212,7 +212,7 @@ export const TECHNOLOGIES: TechnologyProfile[] = [
         'Difficulty refactoring large codebases confidently.',
         'Poor developer experience and lack of accurate autocompletion.'
       ],
-      whyChosen: 'It provides structural typing that perfectly maps to the dynamic nature of JavaScript, while scaling seamlessly from small scripts to enterprise monoliths.',
+      whyChosen: "TypeScript catches so many bugs before I even run the code. It's a bit more setup, but it pays off every time I refactor something.",
       whenToUse: 'Always, unless writing a quick prototype script under 100 lines.',
       whenToAvoid: 'Never, in a professional production context.',
       alternativesEvaluated: ['JSDoc (Too verbose, less robust)', 'Flow (Abandoned)']

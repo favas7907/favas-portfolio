@@ -33,7 +33,7 @@ export default function BookmarksSection() {
             </div>
             
             <h3 className="text-lg font-medium text-slate-900 mb-2 pr-6">
-              <a href={bookmark.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors after:absolute after:inset-0">
+              <a href={bookmark.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors after:absolute after:inset-0">
                 {bookmark.title}
               </a>
             </h3>
@@ -49,7 +49,7 @@ export default function BookmarksSection() {
               >
                 Related Roadmap
               </Link>
-              <ExternalLink className="w-4 h-4 text-slate-300 group-hover:text-blue-500 transition-colors" />
+              <ExternalLink className="w-4 h-4 text-slate-300 group-hover:text-primary transition-colors" />
             </div>
           </motion.div>
         ))}

@@ -83,7 +83,7 @@ export default function LibraryPage() {
                   onClick={() => scrollToSection(section.id)}
                   className={`text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeSection === section.id 
-                      ? 'bg-blue-50 text-blue-600' 
+                      ? 'bg-primary/5 text-primary' 
                       : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >

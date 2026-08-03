@@ -19,7 +19,7 @@ export default function AboutLibrary() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="mb-16"
             >
-              <h2 className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                 Personal Knowledge Base
               </h2>
               <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-900 tracking-tight mb-6">
@@ -50,7 +50,7 @@ export default function AboutLibrary() {
                             {note.lastUpdated}
                           </span>
                         </div>
-                        <h3 className="text-xl font-medium text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-xl font-medium text-slate-900 mb-2 group-hover:text-primary transition-colors">
                           {note.title}
                         </h3>
                         <p className="text-sm text-slate-500 font-light leading-relaxed">
@@ -59,7 +59,7 @@ export default function AboutLibrary() {
                       </div>
                       
                       <div className="shrink-0 flex sm:flex-col justify-between items-end gap-4 mt-4 sm:mt-0">
-                        <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
                           <FileText className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
                         </div>
                       </div>

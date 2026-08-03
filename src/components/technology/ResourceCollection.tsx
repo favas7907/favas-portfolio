@@ -6,7 +6,7 @@ export default function ResourceCollection({ resources }: { resources: Technolog
 
   const getIcon = (type: string) => {
     switch (type) {
-      case 'Documentation': return <BookOpen className="w-4 h-4 text-blue-500" />;
+      case 'Documentation': return <BookOpen className="w-4 h-4 text-primary" />;
       case 'Article': return <FileText className="w-4 h-4 text-emerald-500" />;
       case 'Video': return <Video className="w-4 h-4 text-rose-500" />;
       case 'Repository': return <Github className="w-4 h-4 text-slate-700" />;
@@ -38,7 +38,7 @@ export default function ResourceCollection({ resources }: { resources: Technolog
                 </span>
               </div>
               
-              <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
                 {resource.title}
               </h3>
               
@@ -46,7 +46,7 @@ export default function ResourceCollection({ resources }: { resources: Technolog
                 {resource.whyUseful}
               </p>
               
-              <div className="flex items-center gap-2 text-xs font-semibold text-blue-600 mt-auto">
+              <div className="flex items-center gap-2 text-xs font-semibold text-primary mt-auto">
                 Visit Resource <ExternalLink className="w-3.5 h-3.5" />
               </div>
             </a>

@@ -46,7 +46,7 @@ export default function TimelineSection() {
             
             <div className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-300 transition-colors">
               <div className="flex flex-wrap items-baseline gap-4 mb-4">
-                <span className="text-sm font-medium text-blue-600">{entry.date}</span>
+                <span className="text-sm font-medium text-primary">{entry.date}</span>
                 <h3 className="text-xl font-medium text-slate-900">{entry.title}</h3>
               </div>
 

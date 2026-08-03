@@ -161,7 +161,7 @@ export const ENGINEERING_CONCEPTS: Concept[] = [
       whenNotToUse: 'For tightly coupled internal logic within a single monolithic boundary where function calls suffice.',
       alternatives: 'Direct database access (rarely advised), SDKs.',
       tradeOffs: 'REST is ubiquitous but prone to over-fetching. GraphQL is flexible but complex to cache. gRPC is highly performant but harder to debug in the browser.',
-      evolution: 'Started with pure REST, moved to GraphQL for complex client needs, and now heavily leveraging tRPC for full-stack TypeScript applications for end-to-end type safety.'
+      evolution: 'Started with REST, tried GraphQL for complex data needs, and now mostly using tRPC when the whole stack is TypeScript.'
     }
   }
 ];

@@ -49,7 +49,7 @@ export default function ConceptCard({ concept }: ConceptCardProps) {
               )}
             </div>
           </div>
-          <div className={`p-3 rounded-full bg-slate-50 text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-blue-50 text-blue-600' : ''}`}>
+          <div className={`p-3 rounded-full bg-slate-50 text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-primary/5 text-primary' : ''}`}>
             <ChevronDown className="w-5 h-5" />
           </div>
         </div>
@@ -87,13 +87,13 @@ export default function ConceptCard({ concept }: ConceptCardProps) {
               {concept.principles && concept.principles.length > 0 && (
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <span className="w-2 h-2 rounded-full bg-primary"></span>
                     Core Principles
                   </h4>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {concept.principles.map((principle, idx) => (
                       <li key={idx} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                        <ArrowRight className="w-4 h-4 text-blue-600 mt-1 shrink-0" />
+                        <ArrowRight className="w-4 h-4 text-primary mt-1 shrink-0" />
                         <span className="text-slate-700 text-sm font-medium leading-relaxed">{principle}</span>
                       </li>
                     ))}
@@ -138,11 +138,11 @@ export default function ConceptCard({ concept }: ConceptCardProps) {
                 {concept.insights && (
                   <div>
                     <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-3">
-                      <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                      <span className="w-2 h-2 rounded-full bg-primary"></span>
                       Personal Notes
                     </h4>
-                    <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100/50 relative">
-                      <FileText className="absolute top-6 right-6 w-5 h-5 text-blue-200" />
+                    <div className="bg-primary/5/50 p-6 rounded-2xl border border-primary/10/50 relative">
+                      <FileText className="absolute top-6 right-6 w-5 h-5 text-primary/20" />
                       <p className="text-sm text-slate-700 leading-relaxed italic font-medium">
                         "{concept.insights}"
                       </p>

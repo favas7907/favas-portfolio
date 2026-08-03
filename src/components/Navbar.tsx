@@ -104,7 +104,7 @@ export default function Navbar() {
               className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
               aria-label="Favas M - Home"
             >
-              <span className="text-xl md:text-2xl font-bold text-black tracking-tight transition-opacity duration-300 group-hover:opacity-70 whitespace-nowrap">
+              <span className="text-xl md:text-2xl font-bold text-black tracking-tight transition-all duration-300 group-hover:text-gradient-primary whitespace-nowrap">
                 Favas M
               </span>
             </Link>
@@ -128,6 +128,14 @@ export default function Navbar() {
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {link.name}
+                  {/* Animated underline indicator */}
+                  <span className={`absolute -bottom-0.5 left-0 h-[2px] bg-primary rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
+                  {/* Hover underline for non-active links */}
+                  {!isActive && (
+                    <span className="absolute -bottom-0.5 left-0 h-[2px] bg-slate-300 rounded-full w-0 hover-target transition-all duration-400" />
+                  )}
                 </Link>
               );
             })}

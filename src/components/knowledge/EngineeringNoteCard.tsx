@@ -31,7 +31,7 @@ export default function EngineeringNoteCard({ note }: EngineeringNoteCardProps) 
           </div>
         </div>
 
-        <h3 className="text-xl font-medium text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-medium text-slate-900 mb-3 group-hover:text-primary transition-colors">
           {note.title}
         </h3>
         
@@ -95,7 +95,7 @@ export default function EngineeringNoteCard({ note }: EngineeringNoteCardProps) 
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs font-medium text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition-colors flex items-center"
+                          className="text-xs font-medium text-primary hover:text-primary-dark bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-lg transition-colors flex items-center"
                         >
                           {link.label}
                           <ExternalLink className="w-3 h-3 ml-1.5" />

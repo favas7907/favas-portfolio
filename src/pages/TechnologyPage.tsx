@@ -36,13 +36,13 @@ export default function TechnologyPage() {
     const generatedProfile: TechnologyProfile = {
       id: id as string,
       name: foundSkill.name,
-      overview: `${foundSkill.bestFor} This technology forms a critical part of my engineering toolkit. While a fully detailed profile is still being documented, I utilize it extensively in production environments to solve complex engineering challenges.`,
+      overview: `${foundSkill.bestFor} I use ${foundSkill.name} regularly in my projects. I'm still documenting the full details of how I use it, but it's a core part of how I build things.`,
       whyIUseIt: {
-        problemsSolved: foundSkill.engineeringDepth || ['Streamlines development workflows.', 'Enhances system reliability and performance.', 'Solves specific domain constraints.'],
-        whyChosen: `I selected ${foundSkill.name} for its robustness, community support, and alignment with modern software engineering principles.`,
-        whenToUse: foundSkill.bestFor || 'When the specific architectural requirements align with its core strengths.',
-        whenToAvoid: foundSkill.tradeOffs || 'When simpler alternatives exist or the project constraints do not justify the overhead.',
-        alternativesEvaluated: foundSkill.alternatives || ['Various industry-standard alternatives']
+        problemsSolved: foundSkill.engineeringDepth || ['Helps me build faster.', 'Reduces bugs and friction.', 'Good fit for the problems I work on.'],
+        whyChosen: `I picked ${foundSkill.name} because it works well for what I need, has solid docs, and a community that's already solved most of the edge cases I run into.`,
+        whenToUse: foundSkill.bestFor || 'When it fits the problem well and keeps things simple.',
+        whenToAvoid: foundSkill.tradeOffs || 'When something simpler would do the job just as well.',
+        alternativesEvaluated: foundSkill.alternatives || []
       },
       projects: [],
       engineeringConcepts: foundSkill.engineeringDepth || [],
@@ -50,20 +50,20 @@ export default function TechnologyPage() {
       architecturePatterns: [],
       engineeringDecisions: [],
       bestPractices: [
-        'Adhere strictly to official documentation and community standards.',
-        'Implement robust testing and validation.',
-        'Maintain clear boundaries of responsibility within the architecture.'
+        'Read the docs before reaching for Stack Overflow.',
+        'Write tests for the parts that matter most.',
+        'Keep things modular so they\'re easier to change later.'
       ],
       lessonsLearned: [
         {
-          title: 'Iterative Adoption',
-          description: 'Understanding the underlying mechanics is more important than memorizing syntax. Deep dives into the documentation always pay off.'
+          title: 'Learn by doing',
+          description: 'Reading about a tool is one thing — actually building with it and hitting the weird edge cases is where the real learning happens.'
         }
       ],
       resources: [],
       futureExploration: [
-        'Advanced optimization techniques.',
-        'Integration with emerging technologies.'
+        'Going deeper into advanced patterns.',
+        'Trying it with different project types.'
       ]
     };
     return generatedProfile;

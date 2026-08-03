@@ -74,14 +74,14 @@ export default function ConceptsPage() {
                     onClick={() => scrollToDomain(domain.id)}
                     className={`text-left pl-5 py-2.5 text-sm font-medium transition-all relative ${
                       isActive 
-                        ? 'text-blue-600' 
+                        ? 'text-primary' 
                         : 'text-slate-500 hover:text-slate-900'
                     }`}
                   >
                     {isActive && (
                       <motion.div 
                         layoutId="activeDomainIndicator"
-                        className="absolute left-[-2px] top-0 bottom-0 w-0.5 bg-blue-600"
+                        className="absolute left-[-2px] top-0 bottom-0 w-0.5 bg-primary"
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       />
                     )}

@@ -15,7 +15,7 @@ export default function AboutBeyond() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:sticky lg:top-32"
             >
-              <h2 className="text-xs font-bold uppercase tracking-widest text-blue-600 mb-6">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                 Beyond Engineering
               </h2>
               <p className="text-2xl md:text-3xl font-medium text-slate-900 tracking-tight mb-6">
@@ -40,14 +40,14 @@ export default function AboutBeyond() {
               >
                 <div>
                   <h3 className="text-xl md:text-2xl font-medium text-slate-900 tracking-tight mb-6">
-                    Curiosity as a System
+                    Interests Outside Code
                   </h3>
                   <div className="text-base md:text-lg text-slate-600 font-light leading-relaxed space-y-6">
                     <p>
-                      I read heavily outside of technical documentation, focusing on psychology, urban planning, and behavioral economics. Software engineering is fundamentally about mapping human processes to machine logic. Understanding how people think, how incentives work, and how physical systems scale provides a broader vocabulary for solving technical problems.
+                      I read a lot outside of tech — psychology, urban planning, behavioral economics. I find that understanding how people actually think and how real-world systems scale gives me better instincts when designing software.
                     </p>
                     <p>
-                      A book on city infrastructure often contains more relevant insights into distributed systems than a tutorial on microservices. It teaches that systems must be resilient, adaptable to unpredictable human behavior, and capable of evolving without collapsing. This continuous learning fuels my creativity when approaching complex <Link to="/projects" className="text-slate-900 font-medium underline decoration-slate-300 hover:decoration-blue-600 transition-colors">architectural decisions</Link> in production.
+                      Honestly, reading about how cities handle infrastructure has taught me more about distributed systems than most coding tutorials. It's the same problem: build things that don't break when people use them in ways you didn't expect.
                     </p>
                   </div>
                 </div>
@@ -75,10 +75,10 @@ export default function AboutBeyond() {
                   </h3>
                   <div className="text-base md:text-lg text-slate-600 font-light leading-relaxed space-y-6">
                     <p>
-                      Explaining complex technical concepts to junior developers or non-technical stakeholders is the ultimate test of true understanding. I actively participate in community mentorship because it forces me to abandon jargon and articulate the "why" behind the code.
+                      Explaining something to someone else is the fastest way to find out if you actually understand it. I help classmates and peers with code not because I'm an expert, but because it forces me to think clearly.
                     </p>
                     <p>
-                      Teaching cultivates empathy. It reminds me that the user on the other side of the screen, or the engineer inheriting my codebase, does not share my context. Writing accessible code and clear documentation is not just a best practice; it is an act of professional empathy. This community involvement grounds my personal values and redefines how I approach problem-solving in a <Link to="/library" className="text-slate-900 font-medium underline decoration-slate-300 hover:decoration-blue-600 transition-colors">collaborative environment</Link>.
+                      It also reminds me that the person reading my code or using my app doesn't have the same context I do. Writing code that other people can follow isn't extra work — it's the whole point.
                     </p>
                   </div>
                 </div>
@@ -98,10 +98,10 @@ export default function AboutBeyond() {
                   </h3>
                   <div className="text-base md:text-lg text-slate-600 font-light leading-relaxed space-y-6">
                     <p>
-                      I study photography and visual composition not to become a photographer, but to train my eye for balance, negative space, and focal hierarchy. When I look through a lens, I am forced to eliminate distractions and frame only what matters. 
+                      I've picked up photography as a hobby, and it's changed how I think about UI. Framing a shot is basically the same problem as designing a layout — what do you keep, what do you cut, where does the eye go first?
                     </p>
                     <p>
-                      This daily habit of observation directly translates into interface design and component architecture. A convoluted UI is a poorly framed photograph. By practicing visual discipline offline, I naturally write cleaner, more intuitive user interfaces online. This perspective ensures continuous growth, reminding me that <Link to="/skills" className="text-slate-900 font-medium underline decoration-slate-300 hover:decoration-blue-600 transition-colors">craftsmanship</Link> is in the details we choose to include, and more importantly, the details we choose to omit.
+                      It's made me better at noticing when an interface has too much going on. The best designs, like the best photos, are the ones where you removed everything that wasn't necessary.
                     </p>
                   </div>
                 </div>

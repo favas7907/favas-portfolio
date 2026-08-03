@@ -1,22 +1,14 @@
-import { Project } from "../types";
+import { Project, Achievement } from "../types";
 import { 
   Code2, 
   Layout, 
   Database, 
-  Shield, 
   Github, 
   Linkedin, 
-  Mail, 
-  ExternalLink,
   Terminal,
   Cpu,
-  Globe,
   BookOpen,
-  Award,
-  Trophy,
-  Briefcase,
   GraduationCap,
-  FileText
 } from 'lucide-react';
 
 export const NAV_LINKS = [
@@ -26,86 +18,15 @@ export const NAV_LINKS = [
   { name: 'Projects', href: '/projects' },
   { name: 'Achievements', href: '/achievements' },
   { name: 'Contact', href: '/contact' },
-,
-  {
-    id: 'aws-solutions-architect',
-    title: 'AWS Certified Solutions Architect - Professional',
-    category: 'Certifications',
-    date: '2023',
-    shortDescription: 'Validated expertise in designing distributed systems and highly available architectures on AWS.',
-    image: 'https://picsum.photos/seed/aws/1200/800',
-    link: '#',
-    details: {
-      context: 'Achieving the highest level of AWS certification to validate deep architectural knowledge.',
-      opportunity: 'Formalize years of hands-on cloud experience into a globally recognized credential.',
-      challenge: 'Mastering complex scenarios involving hybrid networks, multi-region failover, and extreme scale.',
-      role: 'Cloud Architect',
-      responsibilities: [
-        'Designed fault-tolerant architectures',
-        'Optimized cost strategies for enterprise workloads',
-        'Implemented rigorous security protocols'
-      ],
-      outcome: 'Passed the rigorous 3-hour exam on the first attempt.',
-      impact: 'Provided internal teams with an authoritative architectural voice when transitioning to cloud-native microservices.',
-      lessons: 'Cloud architecture is fundamentally about trade-offs between cost, performance, and reliability.',
-      relatedTechnologies: ['AWS', 'Distributed Systems', 'Cloud Architecture'],
-    }
-  },
-  {
-    id: 'kubernetes-ckad',
-    title: 'Certified Kubernetes Application Developer (CKAD)',
-    category: 'Certifications',
-    date: '2022',
-    shortDescription: 'Demonstrated proficiency in building and deploying cloud-native applications on Kubernetes.',
-    image: 'https://picsum.photos/seed/k8s/1200/800',
-    details: {
-      context: 'Transitioning engineering infrastructure towards containerized orchestration.',
-      opportunity: 'Mastering Kubernetes primitives to deploy robust, scalable applications.',
-      challenge: 'Learning to debug complex pod networking and persistent storage issues in a live environment.',
-      role: 'Application Developer',
-      responsibilities: [
-        'Configured deployments and services',
-        'Managed persistent volumes and config maps',
-        'Implemented network policies'
-      ],
-      outcome: 'Earned the CKAD certification through a rigorous performance-based exam.',
-      impact: 'Dramatically reduced deployment friction and improved system reliability for multiple microservices.',
-      lessons: 'Declarative infrastructure fundamentally changes how we think about state and deployment.',
-      relatedTechnologies: ['Kubernetes', 'Docker', 'DevOps'],
-    }
-  },
-  {
-    id: 'react-community-speaker',
-    title: 'Keynote Speaker - React Advanced Summit',
-    category: 'Speaking',
-    date: '2023',
-    shortDescription: 'Delivered a technical deep dive on concurrent rendering and performance profiling in React 18.',
-    image: 'https://picsum.photos/seed/speaker/1200/800',
-    details: {
-      context: 'Invited to speak at a major regional React conference with over 500 attendees.',
-      opportunity: 'Share deep learnings about React 18 concurrent features derived from a large-scale migration.',
-      challenge: 'Distilling complex internal React scheduler concepts into digestible, actionable advice for working engineers.',
-      role: 'Keynote Speaker',
-      responsibilities: [
-        'Authored a 45-minute technical presentation',
-        'Created interactive visualizations of the React render phase',
-        'Led a live Q&A session on performance optimization'
-      ],
-      outcome: 'Received highest speaker rating of the conference and published the slide deck open-source.',
-      impact: 'Helped hundreds of developers adopt concurrent mode safely and improve their application performance.',
-      lessons: 'Teaching complex topics forces a deeper understanding of the underlying mechanics than just writing the code.',
-      relatedTechnologies: ['React', 'Performance Profiling', 'Technical Writing'],
-    }
-  }
 ];
 
 export const HERO_CONTENT = {
   name: 'Favas M',
-  role: 'Software Engineer & Security Researcher',
-  specialization: 'AI • Blockchain • Cybersecurity Enthusiast',
+  role: 'Full Stack Developer & CS Student',
+  specialization: 'AI • Blockchain • Cybersecurity',
   college: 'NSS College of Engineering, Palakkad',
   year: '2024-2028',
-  tagline: 'I build reliable software and secure distributed systems. My focus is on writing clean, maintainable code and solving complex architectural challenges.',
+  tagline: 'CS undergrad who likes building full-stack apps, tinkering with AI, and figuring out how to make things work better.',
   ctaPrimary: 'View Projects',
   ctaSecondary: 'Download Resume',
   ctaTertiary: 'Contact Me',
@@ -114,7 +35,7 @@ export const HERO_CONTENT = {
 
 export const ABOUT_CONTENT = {
   title: 'About Me',
-  description: 'I am a passionate B.Tech Computer Science student specializing in building scalable, secure, and intelligent digital solutions. My focus areas include Full Stack Development, AI, Blockchain, and Cybersecurity. Connecting design with clean code, I strive for digital perfection.',
+  description: 'B.Tech CS student at NSS College of Engineering. I build web apps, mess around with AI and blockchain, and try to write code that I won\'t hate reading six months later. Currently exploring cybersecurity on the side.',
   highlights: [
     'Full Stack Development',
     'AI Enthusiast',
@@ -128,14 +49,14 @@ export const EDUCATION = [
     institution: 'B.Tech in Computer Science',
     degree: 'Bachelor of Technology',
     period: '2024 - 2028',
-    details: 'Focusing on core CS concepts including DSA, DBMS, OS, and Networking. Actively involved in technical clubs and research projects.',
+    details: 'Learning the core stuff — DSA, databases, OS, networking. Also doing a bunch of projects and hackathons on the side.',
     icon: GraduationCap
   },
   {
     institution: 'Higher Secondary Education',
     degree: 'Science & Mathematics',
     period: '2022 - 2024',
-    details: 'Strong foundation in Physics, Chemistry, and Mathematics with a focus on logical reasoning and problem solving.',
+    details: 'Solid grounding in math and science. This is where I first started messing around with programming.',
     icon: BookOpen
   }
 ];
@@ -186,7 +107,7 @@ export const PROJECTS: Project[] = [
     tech: ['React', 'Node.js', 'Web Crypto API', 'MongoDB'],
     github: 'https://github.com',
     live: 'https://example.com',
-    image: 'https://picsum.photos/seed/vault/1200/800',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1200&h=800',
     featured: true,
     domain: 'AI & Machine Learning',
     status: 'Production',
@@ -194,7 +115,7 @@ export const PROJECTS: Project[] = [
     role: 'Lead Security Architect',
     timeline: '3 Months',
     details: {
-      overview: 'SecureVault is a state-of-the-art credential management system designed around zero-knowledge architecture. It ensures that neither the service provider nor malicious actors can access user secrets, relying entirely on client-side encryption before any data touches the network.',
+      overview: 'SecureVault is a credential manager built on zero-knowledge architecture. The idea is simple: your passwords are encrypted on your device before they ever hit the server, so even if the database gets breached, the data is useless.',
       problem: 'Traditional password storage relies on server-side hashing, which, while secure against basic attacks, remains vulnerable to sophisticated database breaches and insider threats. Users lack a solution where their credentials are mathematically inaccessible to the host platform.',
       goals: [
         'Implement true zero-knowledge architecture',
@@ -203,7 +124,7 @@ export const PROJECTS: Project[] = [
         'Achieve sub-second encryption/decryption cycles'
       ],
       architecture: {
-      overview: 'The system utilizes the Web Crypto API for client-side AES-GCM encryption. The backend acts strictly as a dumb data store, having zero knowledge of the encryption keys or plaintext data.',
+      overview: 'The system uses the Web Crypto API for client-side AES-GCM encryption. The backend acts as a dumb data store with zero knowledge of the encryption keys or plaintext data.',
       client: 'React SPA handling PBKDF2 key derivation and AES-GCM encryption entirely in-memory using the Web Crypto API. Private keys are never committed to localStorage.',
       server: 'Node.js/Express REST API that only accepts and serves encrypted binary blobs and zero-knowledge proofs for authentication.',
       database: 'MongoDB configured for high-throughput binary storage. Flexible schema allows for varying encrypted vault item structures without database migrations.',
@@ -305,7 +226,7 @@ export const PROJECTS: Project[] = [
         ],
         performanceMetrics: [
           { label: 'Login/Decryption Time', value: '< 400ms', context: 'Average on modern mobile devices', trend: 'down' },
-          { label: 'Main Thread Blocking', value: '0ms', context: 'Down from 350ms by utilizing Web Workers', trend: 'down' },
+          { label: 'Main Thread Blocking', value: '0ms', context: 'Down from 350ms by using Web Workers', trend: 'down' },
           { label: 'Bundle Size (Crypto)', value: '42kb', context: 'Gzipped, excluding UI components', trend: 'down' }
         ],
         reliabilityMetrics: [
@@ -313,7 +234,7 @@ export const PROJECTS: Project[] = [
           { label: 'Encryption Failures', value: '0', context: 'Zero corrupted vaults reported', trend: 'neutral' }
         ],
         testingAndQuality: 'Achieved 95% unit test coverage for the cryptographic module. CI/CD pipeline enforces static analysis and requires simulated red-team attacks to pass before deployment.',
-        scalabilityValidation: 'Stateless backend deployed to AWS Fargate auto-scales based on CPU utilization, capable of handling 10,000 concurrent login attempts.',
+        scalabilityValidation: 'Stateless backend deployed to AWS Fargate auto-scales based on CPU usage, capable of handling 10,000 concurrent login attempts.',
         businessImpact: 'Significantly reduced compliance overhead and liability risk by ensuring no plaintext PII or passwords ever reach the infrastructure.',
         engineeringImpact: 'Established a reusable pattern for offloading heavy Web Crypto API operations to Web Workers, which has been adopted in two subsequent internal projects.',
         conclusion: 'SecureVault proves that uncompromising security does not require sacrificing user experience. By shifting the processing burden to the client intelligently, we protected user privacy mathematically.'
@@ -333,7 +254,7 @@ export const PROJECTS: Project[] = [
     tech: ['TypeScript', 'D3.js', 'Express', 'InfluxDB'],
     github: 'https://github.com',
     live: 'https://example.com',
-    image: 'https://picsum.photos/seed/eco/1200/800',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200&h=800',
     featured: false,
     domain: 'Developer Tools & Utilities',
     status: 'Research',
@@ -341,18 +262,18 @@ export const PROJECTS: Project[] = [
     role: 'Full Stack Engineer',
     timeline: '2 Months',
     details: {
-      overview: 'EcoTrack is a robust telemetry visualization platform built for IoT networks. It aggregates thousands of data points per minute from distributed environmental sensors, presenting them in a responsive, actionable dashboard.',
+      overview: 'EcoTrack is a telemetry dashboard for IoT networks. It pulls in thousands of data points per minute from environmental sensors and shows them in a real-time dashboard you can actually use.',
       problem: 'Fragmented environmental data from disparate IoT devices makes it difficult for researchers and organizations to detect anomalies or trends in real time. Existing dashboards were either too slow or lacked the necessary visualization depth.',
       goals: [
         'Handle high-frequency time-series data streams',
         'Provide sub-second visualization updates',
         'Ensure the UI remains responsive under heavy data loads',
-        'Implement robust alerting mechanisms'
+        'Set up alerts that actually fire when something goes wrong'
       ],
       architecture: {
       overview: 'A hybrid streaming architecture prioritizing high-throughput ingestion and hardware-accelerated client-side rendering. Optimized for high-frequency time-series telemetry.',
       client: 'React UI shell for routing and state, paired with D3.js and HTML5 Canvas API for raw rendering performance, offloading JSON parsing to Web Workers.',
-      server: 'Express.js backend utilizing Node.js Streams to process and compress high-volume MQTT data from IoT gateways before piping to the client via WebSockets.',
+      server: 'Express.js backend using Node.js Streams to process and compress MQTT data from IoT gateways, then pipe it to the client via WebSockets.',
       database: 'InfluxDB optimized for time-series data, enabling sub-second aggregation queries over millions of telemetry rows.',
       authentication: 'JWT-based session management for users, and strictly scoped mTLS certificates for IoT devices connecting to the ingestion gateway.',
       state: 'Zustand for global UI state, while the heavy time-series data array is held in a mutable Ref to prevent React re-rendering bottlenecks.',
@@ -363,7 +284,7 @@ export const PROJECTS: Project[] = [
       security: 'IoT gateways authenticated via mTLS. Data ingestion endpoints are segregated from client query APIs on the internal network.',
       apiDesign: 'WebSockets for real-time streaming to the dashboard. GraphQL used for historical data queries, allowing clients to specify precise time ranges and data resolution, preventing over-fetching.',
       externalIntegrations: 'Integrated with the OpenWeatherMap API to correlate internal temperature sensor readings with external weather conditions. Data is cached in Redis for 15 minutes.',
-      engineeringSummary: 'EcoTrack highlights the importance of choosing the right tool for the job. By bypassing the DOM and utilizing Canvas API paired with a time-series database, we achieved sub-second latency on massive datasets.'
+      engineeringSummary: 'EcoTrack taught me that picking the right tool matters. Skipping the DOM and using Canvas API with a time-series database got us sub-second latency on huge datasets.'
     },
       development: [
         { phase: 'Discovery', title: 'Telemetry Overload', description: 'Observed researchers struggling to visualize high-frequency sensor data. Existing dashboards crashed or lagged when rendering more than a few thousand points.' },
@@ -460,7 +381,7 @@ export const PROJECTS: Project[] = [
     tech: ['Next.js', 'Tailwind CSS', 'Firebase', 'GraphQL'],
     github: 'https://github.com',
     live: 'https://example.com',
-    image: 'https://picsum.photos/seed/dev/1200/800',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200&h=800',
     featured: true,
     domain: 'Production Applications',
     status: 'Open Source',
@@ -469,7 +390,7 @@ export const PROJECTS: Project[] = [
     timeline: '4 Months',
     details: {
       overview: 'DevConnect is an intelligent platform designed to bridge the gap between open-source project maintainers and developers looking to contribute. It uses skill-based matching algorithms and provides real-time collaboration spaces.',
-      problem: 'Open-source collaboration is often siloed. Maintainers struggle to find contributors with specific tech stacks, while new developers are overwhelmed by where to start. There was no dedicated, seamless matching ecosystem.',
+      problem: "Open-source collab is weirdly disconnected. Maintainers can't find contributors with the right stack, new devs don't know where to start. There was nothing that matched them up properly.",
       goals: [
         'Build a real-time messaging and notification engine',
         'Implement an efficient GraphQL API for complex relational queries',
@@ -478,12 +399,12 @@ export const PROJECTS: Project[] = [
       ],
       architecture: {
       overview: 'A dual-backend architecture marrying the SEO and relational querying strengths of a Next.js/GraphQL stack with the real-time, high-concurrency capabilities of Firebase.',
-      client: 'Next.js application utilizing Server-Side Rendering (SSR) for public profiles, paired with Apollo Client for complex graph queries and local caching.',
+      client: 'Next.js app with SSR for public profiles, using Apollo Client for graph queries and local caching.',
       server: 'Apollo GraphQL Server acting as an API Gateway, resolving relational queries efficiently to prevent N+1 issues and minimizing payload sizes.',
       database: 'PostgreSQL for highly structured relational data (Users, Projects, Skills) and Firebase Realtime Database exclusively for the ephemeral chat and presence layer.',
       authentication: 'Firebase Authentication handling OAuth (GitHub/Google) and issuing JWTs, which are verified by the GraphQL middleware for protected mutations.',
       state: 'Apollo Client normalized cache for structured relational data, reducing redundant network requests. React Context for real-time Firebase connection status.',
-      deployment: 'Vercel for the Next.js frontend/BFF to leverage Edge caching. PostgreSQL hosted on a managed AWS RDS instance with automated daily snapshots.',
+      deployment: 'Vercel for the frontend with Edge caching. PostgreSQL on AWS RDS with automated daily backups.',
       requestLifecycle: 'User searches -> GraphQL resolves relational query -> UI updates. Chat initiates -> Firebase listener opens -> Real-time sync commences.',
       performance: 'Next.js Edge Caching serves static profiles instantly. Apollo Normalized Cache prevents duplicate network requests for overlapping queries.',
       scalability: 'GraphQL BFF insulates the database from heavy read loads. Firebase handles horizontal chat scaling natively without custom provisioning.',
@@ -499,7 +420,7 @@ export const PROJECTS: Project[] = [
         { phase: 'First Sprint', title: 'Matching Engine', description: 'Implemented the core matching algorithm in PostgreSQL. Rather than basic keyword matching, built a graph-based adjacency model to suggest relevant but unlisted skills.' },
         { phase: 'Core Features', title: 'Real-Time Synchronization', description: 'Integrated Firebase Realtime Database for the chat layer. Faced state synchronization issues between GraphQL and Firebase, resolved by writing custom hooks for optimistic UI updates.' },
         { phase: 'Testing', title: 'Handling Concurrent State', description: 'Stress-tested the chat and matching engine. Discovered hydration mismatches during SSR when injecting Firebase presence state. Deferred real-time listeners to the client-side useEffect layer.', techNotes: 'Implemented a custom useFirebasePresence hook to isolate real-time state from Next.js server rendering.' },
-        { phase: 'Deployment', title: 'Edge Caching', description: 'Deployed the Next.js frontend to Vercel to leverage Edge caching for public profiles. The PostgreSQL database was provisioned on AWS RDS with automated snapshots.' }
+        { phase: 'Deployment', title: 'Edge Caching', description: 'Deployed the frontend to Vercel for edge caching on public profiles. PostgreSQL on AWS RDS with automated backups.' }
       ],
       engineeringDecisions: [
         {
@@ -526,7 +447,7 @@ export const PROJECTS: Project[] = [
             'Requires writing synchronization logic between the two databases when profile states affect chat permissions.',
             'Increases infrastructure complexity with two separate database paradigms.'
           ],
-          outcome: 'Achieved the best of both worlds. The matching algorithm could leverage advanced SQL, while the chat scaled effortlessly to thousands of concurrent users without DevOps intervention.',
+          outcome: 'Got the best of both worlds. The matching algo uses SQL queries, while chat scales to thousands of users without me touching anything.',
           reflection: 'Accepting the complexity of a polyglot persistence layer was the right call. Forcing relational data into NoSQL, or forcing a relational DB to act as a high-frequency message bus, would have caused systemic failures later.'
         },
         {
@@ -570,7 +491,7 @@ export const PROJECTS: Project[] = [
         scalabilityValidation: 'PostgreSQL database partitioned by active date. Firebase Realtime Database connections remained well within the 200k concurrent limit during peak traffic.',
         businessImpact: 'Created a self-sustaining ecosystem bridging open-source maintainers and contributors, directly resulting in over 300 successful pull requests across various projects.',
         engineeringImpact: 'Created a blueprint for safely mixing server-rendered React (Next.js) with real-time, client-side WebSocket state without sacrificing SEO or user experience.',
-        conclusion: 'DevConnect successfully navigated the complexities of real-time state and relational data. By respecting the strengths of different database paradigms, we built a highly responsive, scalable platform.'
+        conclusion: 'DevConnect was a good lesson in picking the right database for each job. Using PostgreSQL for structured data and Firebase for real-time chat kept things fast and simple.'
       },
       future: 'I intend to migrate the matching engine to a dedicated vector database to allow for semantic searching (e.g., matching "React" with "Next.js" implicitly). Additionally, I plan to move away from Firebase to a custom WebSocket implementation using Socket.io and Redis to reduce vendor lock-in and lower operational costs at scale.',
       lessons: 'I gained deep insights into the trade-offs between REST and GraphQL, particularly around the N+1 query problem, and mastered advanced state synchronization techniques in a highly concurrent user environment.'
@@ -587,7 +508,7 @@ export const PROJECTS: Project[] = [
     tech: ['Solidity', 'React', 'Ethers.js', 'Hardhat'],
     github: 'https://github.com',
     live: 'https://example.com',
-    image: 'https://picsum.photos/seed/blockvote/1200/800',
+    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1200&h=800',
     featured: false,
     year: '2023',
     role: 'Lead Architect',
@@ -595,7 +516,7 @@ export const PROJECTS: Project[] = [
     domain: 'Blockchain & Web3',
     status: 'Hackathon',
     details: {
-      overview: 'SecureVault is a state-of-the-art credential management system designed around zero-knowledge architecture. It ensures that neither the service provider nor malicious actors can access user secrets, relying entirely on client-side encryption before any data touches the network.',
+      overview: 'SecureVault is a credential manager built on zero-knowledge architecture. The idea is simple: your passwords are encrypted on your device before they ever hit the server, so even if the database gets breached, the data is useless.',
       problem: 'Traditional password storage relies on server-side hashing, which, while secure against basic attacks, remains vulnerable to sophisticated database breaches and insider threats. Users lack a solution where their credentials are mathematically inaccessible to the host platform.',
       goals: [
         'Implement true zero-knowledge architecture',
@@ -604,7 +525,7 @@ export const PROJECTS: Project[] = [
         'Achieve sub-second encryption/decryption cycles'
       ],
       architecture: {
-      overview: 'The system utilizes the Web Crypto API for client-side AES-GCM encryption. The backend acts strictly as a dumb data store, having zero knowledge of the encryption keys or plaintext data.',
+      overview: 'The system uses the Web Crypto API for client-side AES-GCM encryption. The backend acts as a dumb data store with zero knowledge of the encryption keys or plaintext data.',
       client: 'React SPA handling PBKDF2 key derivation and AES-GCM encryption entirely in-memory using the Web Crypto API. Private keys are never committed to localStorage.',
       server: 'Node.js/Express REST API that only accepts and serves encrypted binary blobs and zero-knowledge proofs for authentication.',
       database: 'MongoDB configured for high-throughput binary storage. Flexible schema allows for varying encrypted vault item structures without database migrations.',
@@ -706,7 +627,7 @@ export const PROJECTS: Project[] = [
         ],
         performanceMetrics: [
           { label: 'Login/Decryption Time', value: '< 400ms', context: 'Average on modern mobile devices', trend: 'down' },
-          { label: 'Main Thread Blocking', value: '0ms', context: 'Down from 350ms by utilizing Web Workers', trend: 'down' },
+          { label: 'Main Thread Blocking', value: '0ms', context: 'Down from 350ms by using Web Workers', trend: 'down' },
           { label: 'Bundle Size (Crypto)', value: '42kb', context: 'Gzipped, excluding UI components', trend: 'down' }
         ],
         reliabilityMetrics: [
@@ -714,7 +635,7 @@ export const PROJECTS: Project[] = [
           { label: 'Encryption Failures', value: '0', context: 'Zero corrupted vaults reported', trend: 'neutral' }
         ],
         testingAndQuality: 'Achieved 95% unit test coverage for the cryptographic module. CI/CD pipeline enforces static analysis and requires simulated red-team attacks to pass before deployment.',
-        scalabilityValidation: 'Stateless backend deployed to AWS Fargate auto-scales based on CPU utilization, capable of handling 10,000 concurrent login attempts.',
+        scalabilityValidation: 'Stateless backend deployed to AWS Fargate auto-scales based on CPU usage, capable of handling 10,000 concurrent login attempts.',
         businessImpact: 'Significantly reduced compliance overhead and liability risk by ensuring no plaintext PII or passwords ever reach the infrastructure.',
         engineeringImpact: 'Established a reusable pattern for offloading heavy Web Crypto API operations to Web Workers, which has been adopted in two subsequent internal projects.',
         conclusion: 'SecureVault proves that uncompromising security does not require sacrificing user experience. By shifting the processing burden to the client intelligently, we protected user privacy mathematically.'
@@ -733,7 +654,7 @@ export const PROJECTS: Project[] = [
     tech: ['TypeScript', 'WebGL', 'React', 'Vite'],
     github: 'https://github.com',
     live: 'https://example.com',
-    image: 'https://picsum.photos/seed/algovis/1200/800',
+    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1200&h=800',
     featured: false,
     year: '2022',
     role: 'Solo Developer',
@@ -741,7 +662,7 @@ export const PROJECTS: Project[] = [
     domain: 'Research & Experiments',
     status: 'Experimental',
     details: {
-      overview: 'SecureVault is a state-of-the-art credential management system designed around zero-knowledge architecture. It ensures that neither the service provider nor malicious actors can access user secrets, relying entirely on client-side encryption before any data touches the network.',
+      overview: 'SecureVault is a credential manager built on zero-knowledge architecture. The idea is simple: your passwords are encrypted on your device before they ever hit the server, so even if the database gets breached, the data is useless.',
       problem: 'Traditional password storage relies on server-side hashing, which, while secure against basic attacks, remains vulnerable to sophisticated database breaches and insider threats. Users lack a solution where their credentials are mathematically inaccessible to the host platform.',
       goals: [
         'Implement true zero-knowledge architecture',
@@ -750,7 +671,7 @@ export const PROJECTS: Project[] = [
         'Achieve sub-second encryption/decryption cycles'
       ],
       architecture: {
-      overview: 'The system utilizes the Web Crypto API for client-side AES-GCM encryption. The backend acts strictly as a dumb data store, having zero knowledge of the encryption keys or plaintext data.',
+      overview: 'The system uses the Web Crypto API for client-side AES-GCM encryption. The backend acts as a dumb data store with zero knowledge of the encryption keys or plaintext data.',
       client: 'React SPA handling PBKDF2 key derivation and AES-GCM encryption entirely in-memory using the Web Crypto API. Private keys are never committed to localStorage.',
       server: 'Node.js/Express REST API that only accepts and serves encrypted binary blobs and zero-knowledge proofs for authentication.',
       database: 'MongoDB configured for high-throughput binary storage. Flexible schema allows for varying encrypted vault item structures without database migrations.',
@@ -852,7 +773,7 @@ export const PROJECTS: Project[] = [
         ],
         performanceMetrics: [
           { label: 'Login/Decryption Time', value: '< 400ms', context: 'Average on modern mobile devices', trend: 'down' },
-          { label: 'Main Thread Blocking', value: '0ms', context: 'Down from 350ms by utilizing Web Workers', trend: 'down' },
+          { label: 'Main Thread Blocking', value: '0ms', context: 'Down from 350ms by using Web Workers', trend: 'down' },
           { label: 'Bundle Size (Crypto)', value: '42kb', context: 'Gzipped, excluding UI components', trend: 'down' }
         ],
         reliabilityMetrics: [
@@ -860,7 +781,7 @@ export const PROJECTS: Project[] = [
           { label: 'Encryption Failures', value: '0', context: 'Zero corrupted vaults reported', trend: 'neutral' }
         ],
         testingAndQuality: 'Achieved 95% unit test coverage for the cryptographic module. CI/CD pipeline enforces static analysis and requires simulated red-team attacks to pass before deployment.',
-        scalabilityValidation: 'Stateless backend deployed to AWS Fargate auto-scales based on CPU utilization, capable of handling 10,000 concurrent login attempts.',
+        scalabilityValidation: 'Stateless backend deployed to AWS Fargate auto-scales based on CPU usage, capable of handling 10,000 concurrent login attempts.',
         businessImpact: 'Significantly reduced compliance overhead and liability risk by ensuring no plaintext PII or passwords ever reach the infrastructure.',
         engineeringImpact: 'Established a reusable pattern for offloading heavy Web Crypto API operations to Web Workers, which has been adopted in two subsequent internal projects.',
         conclusion: 'SecureVault proves that uncompromising security does not require sacrificing user experience. By shifting the processing burden to the client intelligently, we protected user privacy mathematically.'
@@ -868,35 +789,130 @@ export const PROJECTS: Project[] = [
       future: 'In the future, I plan to implement passkey support (WebAuthn) to eliminate the reliance on master passwords entirely, moving towards a hardware-backed security model. Additionally, migrating the cryptographic operations to WebAssembly could further reduce decryption times by ~30%.',
       lessons: 'This project underscored the complexities of applied cryptography in the browser. I learned that security is not just about the algorithms used, but the entire lifecycle of the key management process, from memory allocation to secure transmission.'
     }
+  },
+  {
+    id: 'taskflow',
+    title: 'TaskFlow',
+    tagline: 'Kanban-style project management with real-time sync.',
+    description: 'A collaborative task management app with drag-and-drop boards, real-time WebSocket updates, and team workspaces.',
+    tech: ['React', 'Node.js', 'Socket.io', 'PostgreSQL'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=1200&h=800',
+    featured: false,
+    year: '2024',
+    role: 'Full Stack Developer',
+    timeline: '6 Weeks',
+    domain: 'Full Stack',
+    status: 'Production',
+  },
+  {
+    id: 'ai-summarizer',
+    title: 'AI Summarizer',
+    tagline: 'Intelligent document summarization using NLP.',
+    description: 'A web app that accepts PDF, DOCX, and plain text to generate concise summaries using transformer-based NLP models.',
+    tech: ['Python', 'Flask', 'Hugging Face', 'React'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200&h=800',
+    featured: false,
+    year: '2024',
+    role: 'ML Engineer',
+    timeline: '4 Weeks',
+    domain: 'AI & Machine Learning',
+    status: 'Beta',
+  },
+  {
+    id: 'cli-deploy',
+    title: 'DeployCLI',
+    tagline: 'Zero-config deployment tool for Node.js apps.',
+    description: 'A command-line tool that automates containerization, CI/CD setup, and cloud deployment for Node.js applications.',
+    tech: ['Node.js', 'Docker', 'AWS SDK', 'Commander.js'],
+    github: 'https://github.com',
+    live: '',
+    image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=1200&h=800',
+    featured: false,
+    year: '2024',
+    role: 'Developer Tools Engineer',
+    timeline: '3 Weeks',
+    domain: 'DevOps & Tools',
+    status: 'Open Source',
+  },
+  {
+    id: 'crypto-tracker',
+    title: 'CryptoScope',
+    tagline: 'Real-time cryptocurrency portfolio tracker.',
+    description: 'A dashboard for tracking crypto holdings, market data, and portfolio performance with interactive charts and alerts.',
+    tech: ['Next.js', 'TypeScript', 'Chart.js', 'CoinGecko API'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=1200&h=800',
+    featured: false,
+    year: '2023',
+    role: 'Frontend Developer',
+    timeline: '5 Weeks',
+    domain: 'Web3 & Blockchain',
+    status: 'Production',
+  },
+  {
+    id: 'smart-notes',
+    title: 'SmartNotes',
+    tagline: 'Markdown note-taking with AI-powered search.',
+    description: 'A notes app with rich markdown editing, semantic search using embeddings, and automatic tagging.',
+    tech: ['React', 'Supabase', 'OpenAI API', 'Tailwind CSS'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+    image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&q=80&w=1200&h=800',
+    featured: false,
+    year: '2024',
+    role: 'Full Stack Developer',
+    timeline: '4 Weeks',
+    domain: 'AI & Machine Learning',
+    status: 'Beta',
+  },
+  {
+    id: 'event-hub',
+    title: 'EventHub',
+    tagline: 'Campus event management and discovery platform.',
+    description: 'A platform for college students to discover, create, and manage campus events with RSVPs and notifications.',
+    tech: ['React', 'Express', 'MongoDB', 'Tailwind CSS'],
+    github: 'https://github.com',
+    live: 'https://example.com',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200&h=800',
+    featured: false,
+    year: '2024',
+    role: 'Full Stack Developer',
+    timeline: '8 Weeks',
+    domain: 'Full Stack',
+    status: 'Production',
   }
 ];
 
 export const EXPERIENCE = [
   {
-    company: 'TechFlow Solutions',
-    role: 'Software Engineering Intern',
-    period: 'Summer 2024',
-    description: 'Assisted in developing a high-traffic e-commerce platform. Optimized frontend performance by 20% using React and micro-frontends.'
+    company: 'Open Source & Personal Projects',
+    role: 'Independent Developer',
+    period: '2024 - Present',
+    description: 'Building full-stack applications and contributing to open-source projects. Focused on React, Node.js, and secure system design.'
   },
   {
-    company: 'CyberGuard Inc.',
-    role: 'Cybersecurity Trainee',
-    period: 'Winter 2023',
-    description: 'Conducted vulnerability assessments and penetration testing for internal applications. Learned OWASP Top 10 and network security.'
+    company: 'NSS College of Engineering',
+    role: 'B.Tech Computer Science',
+    period: '2024 - 2028',
+    description: 'Studying core CS concepts including DSA, DBMS, Operating Systems, and Computer Networks. Active in technical clubs and hackathons.'
   }
 ];
 
 
 export const CONTACT_INFO = {
   email: 'favasm7907@gmail.com',
-  location: 'San Francisco, CA',
+  location: 'Kerala, India',
   socials: [
-    { name: 'GitHub', icon: Github, href: 'https://github.com' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/favas7907' },
     { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { name: 'Twitter', icon: Globe, href: 'https://twitter.com' }
   ],
 };
-import { Achievement } from '../types';
+
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
@@ -905,7 +921,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'Hackathons',
     date: '2024',
     shortDescription: 'Led a team of four to first place among 200+ global teams by architecting a decentralized voting system.',
-    image: 'https://picsum.photos/seed/hackathon/1200/800',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200&h=800',
     details: {
       context: 'The Global Web3 Hackathon brings together top engineers from around the world to solve critical governance challenges using decentralized technologies.',
       opportunity: 'We identified a critical flaw in existing DAO voting mechanisms where whale accounts could manipulate outcomes. We saw an opportunity to implement quadratic voting on-chain.',
@@ -928,7 +944,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'Open Source',
     date: '2023 - Present',
     shortDescription: 'Significant contributions to improving accessibility and cross-platform gesture handling.',
-    image: 'https://picsum.photos/seed/opensource/1200/800',
+    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1200&h=800',
     link: 'https://github.com',
     details: {
       context: 'React Native Web is a critical infrastructure project that allows developers to use React Native components and APIs on the web.',
@@ -952,7 +968,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     category: 'Leadership',
     date: '2023',
     shortDescription: 'Selected for a highly competitive fellowship focused on advanced distributed systems.',
-    image: 'https://picsum.photos/seed/fellowship/1200/800',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200&h=800',
     details: {
       context: 'An invite-only, 12-week intensive fellowship gathering 20 engineers globally to study and build distributed systems under the guidance of industry veterans.',
       opportunity: 'An opportunity to transition from building standard web applications to understanding the foundational infrastructure that powers global-scale software.',
@@ -967,6 +983,82 @@ export const ACHIEVEMENTS: Achievement[] = [
       impact: 'The experience fundamentally shifted my engineering approach, giving me the confidence to design resilient backend architectures for subsequent projects.',
       lessons: 'Distributed systems taught me to embrace failure as an expected state. Building resilient software is not about preventing failure, but ensuring the system gracefully recovers.',
       relatedTechnologies: ['Go', 'Raft Consensus', 'gRPC', 'Distributed Systems'],
+    }
+  },
+  {
+    id: 'aws-certified-2024',
+    title: 'AWS Cloud Practitioner Certified',
+    category: 'Certifications',
+    date: '2024',
+    shortDescription: 'Earned AWS Cloud Practitioner certification, validating foundational cloud computing knowledge.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200&h=800',
+    details: {
+      context: 'Amazon Web Services Cloud Practitioner is a foundational certification that validates understanding of AWS Cloud concepts, services, security, architecture, and pricing.',
+      opportunity: 'As I began deploying production applications on AWS, I wanted to formalize my knowledge and establish a strong foundation before pursuing more advanced certifications.',
+      challenge: 'Understanding the breadth of 200+ AWS services and knowing which service to choose for different architectural patterns required systematic study beyond just hands-on experience.',
+      role: 'Certification Candidate',
+      responsibilities: ['Completed official AWS training modules', 'Practiced with mock exams and labs', 'Applied learnings to real project deployments'],
+      outcome: 'Passed the certification exam on the first attempt with a score well above the passing threshold.',
+      impact: 'The structured knowledge improved my ability to make informed architectural decisions about cost, scalability, and security for cloud-deployed projects.',
+      lessons: 'Certification study forced me to learn services I would never have explored organically, broadening my perspective on cloud architecture possibilities.',
+      relatedTechnologies: ['AWS EC2', 'S3', 'Lambda', 'CloudFront', 'IAM'],
+    }
+  },
+  {
+    id: 'techfest-speaker-2024',
+    title: 'TechFest 2024 — Workshop Speaker',
+    category: 'Events',
+    date: '2024',
+    shortDescription: 'Delivered a workshop on "Building Secure Web Applications" at the college technical festival.',
+    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1200&h=800',
+    details: {
+      context: 'The annual technical festival at NSS College of Engineering brings together 500+ students for workshops, hackathons, and technical competitions.',
+      opportunity: 'I was invited to lead a hands-on workshop after faculty recognized my work on SecureVault and web security projects.',
+      challenge: 'Making complex security concepts accessible to beginners while keeping the content technically rigorous for advanced students in a 3-hour session.',
+      role: 'Workshop Facilitator',
+      responsibilities: ['Designed hands-on exercises with a vulnerable web app', 'Live-coded security fixes including XSS, CSRF, and SQL injection', 'Created take-home reference materials'],
+      outcome: '80+ students attended. Post-workshop survey showed 92% found the content immediately applicable to their own projects.',
+      impact: 'Three student teams went on to implement security best practices from the workshop in their semester projects.',
+      lessons: 'Teaching is the ultimate test of understanding. Explaining CSRF protection to beginners exposed gaps in my own mental model that I subsequently filled.',
+      relatedTechnologies: ['Node.js', 'Express', 'OWASP', 'Web Security'],
+    }
+  },
+  {
+    id: 'gdg-community-lead',
+    title: 'Google Developer Group — Campus Lead',
+    category: 'Community',
+    date: '2024 - Present',
+    shortDescription: 'Leading the GDG campus chapter, organizing meetups and study jams for 200+ members.',
+    image: 'https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&q=80&w=1200&h=800',
+    details: {
+      context: 'Google Developer Groups on Campus are community groups for students interested in Google developer technologies.',
+      opportunity: 'After actively participating in GDG events, I was selected to lead the campus chapter and grow the community.',
+      challenge: 'Building a sustainable community culture that goes beyond one-time events and creates lasting peer-learning habits among students.',
+      role: 'Community Lead',
+      responsibilities: ['Organized monthly tech talks and code labs', 'Mentored junior members on open-source contributions', 'Coordinated with Google DevRel team for resources'],
+      outcome: 'Grew membership from 50 to 200+ active members within one semester. Organized 8 events with average attendance of 60+ students.',
+      impact: 'Multiple members contributed to open-source projects for the first time and several secured internships through skills developed in study jams.',
+      lessons: 'Leadership in tech communities is about creating platforms for others to shine, not about showcasing your own skills.',
+      relatedTechnologies: ['Google Cloud', 'Firebase', 'Android', 'Web Technologies'],
+    }
+  },
+  {
+    id: 'smart-india-hackathon',
+    title: 'Smart India Hackathon — Finalist',
+    category: 'Hackathons',
+    date: '2024',
+    shortDescription: 'Reached the national finals of Smart India Hackathon with a healthcare data management solution.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200&h=800',
+    details: {
+      context: 'Smart India Hackathon is India\'s largest open innovation model where students solve problems posed by government ministries and private organizations.',
+      opportunity: 'Our team identified a real problem in rural healthcare data management and proposed a low-bandwidth solution using offline-first architecture.',
+      challenge: 'Designing a system that works reliably with intermittent internet connectivity while ensuring data integrity and HIPAA-equivalent security standards.',
+      role: 'Backend Architect',
+      responsibilities: ['Designed the offline-first data sync architecture', 'Implemented conflict resolution for concurrent edits', 'Built the REST API with data encryption at rest'],
+      outcome: 'Selected as one of the top 10 finalists from 500+ participating teams. The prototype was demonstrated to ministry officials.',
+      impact: 'The offline-first architecture pattern we developed was later adapted for our college\'s internal project management tool.',
+      lessons: 'Hackathons at scale teach you to balance ambition with execution. The best solution is the one you can demonstrate working in 36 hours.',
+      relatedTechnologies: ['React', 'Node.js', 'PouchDB', 'CouchDB', 'Docker'],
     }
   }
 ];

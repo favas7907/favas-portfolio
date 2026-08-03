@@ -34,7 +34,7 @@ export default function RelationshipPanel({ relatedIds }: RelationshipPanelProps
             }}
             className="group flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-transparent hover:border-slate-200 hover:bg-white transition-all text-left"
           >
-            <span className="text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors">
+            <span className="text-sm font-medium text-slate-700 group-hover:text-primary transition-colors">
               {concept!.title}
             </span>
             <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />

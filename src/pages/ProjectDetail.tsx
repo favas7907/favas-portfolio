@@ -1,115 +1,90 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, ExternalLink, Github, CheckCircle2, Database, Server, Layout, ShieldCheck, Activity, Globe, Zap, ArrowUpRight, Lock, Repeat, Network, Blocks, Terminal } from 'lucide-react';
+import { ArrowLeft, ExternalLink, ArrowRight } from 'lucide-react';
 import { PROJECTS } from '../constants/data';
-import CallToExplore from '../components/CallToExplore';
 import WorkflowNavigator from '../components/projects/workflow/WorkflowNavigator';
-
-const SectionHeader = ({ title }: { title: string }) => (
-  <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-6">
-    {title}
-  </h2>
-);
-
-const TextContent = ({ children }: { children: React.ReactNode }) => (
-  <div className="prose prose-slate prose-lg max-w-none">
-    <p className="text-slate-600 leading-relaxed">
-      {children}
-    </p>
-  </div>
-);
+import TechIcon from '../components/TechIcon';
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const project = PROJECTS.find(p => p.id === id);
+  const projectIndex = PROJECTS.findIndex(p => p.id === id);
+  const nextProject = PROJECTS[(projectIndex + 1) % PROJECTS.length];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!project) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center bg-white pt-32">
-        <h1 className="text-3xl font-medium mb-6">Project not found</h1>
-        <Link 
-          to="/projects" 
-          className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-black hover:text-primary transition-colors group"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-2 transition-transform" />
-          Return to Projects
+        <h1 className="text-3xl font-bold mb-6 text-black">Project not found</h1>
+        <Link to="/projects" className="btn-outline">
+          <ArrowLeft className="w-4 h-4" /> Return to Projects
         </Link>
       </div>
     );
   }
 
   return (
-    <>
-      {/* Detail Hero */}
-      <section className="pt-32 pb-16 md:pt-48 md:pb-24 bg-white">
+    <div className="bg-white min-h-screen">
+      {/* Hero */}
+      <section className="pt-28 pb-12 md:pt-40 md:pb-16">
         <div className="container-custom">
           
           <Link 
             to="/projects" 
-            className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-black transition-colors group mb-12"
+            className="inline-flex items-center text-sm font-semibold text-slate-400 hover:text-primary transition-colors group mb-8 md:mb-12"
           >
-            <ArrowLeft className="w-3 h-3 mr-2 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             All Projects
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-8"
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.1] mb-6">
-                {project.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-3xl">
-                {project.tagline}
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-4 flex lg:justify-end"
-            >
-              <div className="flex items-center gap-4">
-                <a 
-                  href={project.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-white hover:bg-slate-900 hover:border-slate-900 transition-all duration-300"
-                  aria-label="Source Code"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
+          <div className="max-w-4xl">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="px-3 py-1.5 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-widest rounded-md">
+                {project.domain}
+              </span>
+              <span className="text-sm text-slate-400 font-medium">{project.year}</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black leading-[1.1] mb-5">
+              {project.title}
+            </h1>
+            <p className="text-lg md:text-xl text-slate-500 leading-relaxed mb-8 max-w-2xl">
+              {project.tagline}
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3">
+              {project.live && (
                 <a 
                   href={project.live} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-white hover:bg-primary hover:border-primary transition-all duration-300"
-                  aria-label="Live Project"
+                  className="btn-accent"
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink className="w-4 h-4" /> Live Demo
                 </a>
-              </div>
-            </motion.div>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Hero Image */}
-      <section className="bg-white pb-24 md:pb-32">
+      <section className="pb-12 md:pb-20">
         <div className="container-custom">
           <motion.div 
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full aspect-[16/9] md:aspect-[21/9] bg-slate-100 rounded-2xl overflow-hidden relative border border-slate-100 shadow-sm"
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full aspect-[16/9] md:aspect-[2/1] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200"
           >
             <img 
               src={project.image} 
-              alt={`${project.title} Interface Preview`} 
+              alt={`${project.title} Interface`} 
               className="w-full h-full object-cover"
               loading="eager"
             />
@@ -118,26 +93,29 @@ export default function ProjectDetail() {
       </section>
 
       {/* Project Meta */}
-      <section className="py-16 bg-slate-50 border-y border-slate-100">
+      <section className="py-10 md:py-12 bg-slate-50 border-y border-slate-100">
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Role</span>
-              <span className="text-slate-900 font-medium text-lg">{project.role}</span>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Role</span>
+              <span className="text-black font-semibold text-sm md:text-base">{project.role}</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Timeline</span>
-              <span className="text-slate-900 font-medium text-lg">{project.timeline}</span>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Timeline</span>
+              <span className="text-black font-semibold text-sm md:text-base">{project.timeline}</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Year</span>
-              <span className="text-slate-900 font-medium text-lg">{project.year}</span>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Year</span>
+              <span className="text-black font-semibold text-sm md:text-base">{project.year}</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">Tech Stack</span>
-              <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Stack</span>
+              <div className="flex flex-wrap gap-2">
                 {project.tech.map(t => (
-                  <span key={t} className="text-slate-900 font-medium text-lg">{t}</span>
+                  <span key={t} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/5 px-3 py-1.5 rounded-lg border border-primary/10">
+                    <TechIcon name={t} size={16} />
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
@@ -145,14 +123,47 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Details Content / Engineering Methodology */}
-      <section className="bg-white">
-        <div className="container-custom">
-          <WorkflowNavigator project={project} />
-        </div>
-      </section>
+      {/* Content */}
+      {project.details ? (
+        <section className="bg-white">
+          <div className="container-custom">
+            <WorkflowNavigator project={project} />
+          </div>
+        </section>
+      ) : (
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container-custom max-w-3xl">
+            <h2 className="text-2xl font-bold text-black mb-6">About this project</h2>
+            <p className="text-lg text-slate-500 leading-relaxed mb-8">{project.description}</p>
+            {project.live && (
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-accent">
+                <ExternalLink className="w-4 h-4" /> Live Demo
+              </a>
+            )}
+          </div>
+        </section>
+      )}
 
-      <CallToExplore />
-    </>
+      {/* Next Project — clean white navigation */}
+      {nextProject && (
+        <section className="py-16 md:py-24 border-t border-slate-100">
+          <div className="container-custom">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">Next Project</span>
+                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-tight">{nextProject.title}</h3>
+                <p className="text-slate-500 mt-1">{nextProject.tagline}</p>
+              </div>
+              <Link
+                to={`/projects/${nextProject.id}`}
+                className="btn-outline shrink-0"
+              >
+                View Project <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
   );
 }

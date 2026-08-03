@@ -56,7 +56,7 @@ function ExperimentCard({ experiment, index }: { experiment: any, index: number 
           </span>
         </div>
 
-        <h3 className="text-xl font-medium text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-medium text-slate-900 mb-4 group-hover:text-primary transition-colors">
           {experiment.title}
         </h3>
         

@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import Hero from '../components/Hero';
 import AboutPreview from '../components/home/AboutPreview';
 import ProjectsPreview from '../components/home/ProjectsPreview';

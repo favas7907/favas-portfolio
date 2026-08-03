@@ -11,8 +11,8 @@ export default function RetrospectiveCard({ lessons, future }: RetrospectiveCard
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
       <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-            <Lightbulb className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+            <Lightbulb className="w-5 h-5 text-primary" />
           </div>
           <h4 className="text-lg font-medium tracking-tight text-slate-900">Engineering Lessons</h4>
         </div>

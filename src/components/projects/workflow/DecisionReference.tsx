@@ -16,7 +16,7 @@ export default function DecisionReference({ decision }: DecisionReferenceProps) 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-6 flex items-start gap-4 hover:bg-slate-50 transition-colors"
       >
-        <Network className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+        <Network className="w-5 h-5 text-primary shrink-0 mt-0.5" />
         <div className="flex-1">
           <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1">Architecture Decision</span>
           <h4 className="text-base font-medium tracking-tight text-slate-900">{decision.title}</h4>

@@ -65,7 +65,7 @@ export const DOMAIN_RESOURCES: DetailedResource[] = [
     id: 'res-react-docs',
     domainId: 'frontend',
     title: 'React Official Documentation',
-    summary: 'The comprehensive guide to building user interfaces with React, focusing on Hooks, Server Components, and concurrency.',
+    summary: 'The official React docs — covers Hooks, Server Components, and all the new concurrency stuff.',
     category: 'Official Documentation',
     difficulty: 'Intermediate',
     estimatedTime: '20+ hours',

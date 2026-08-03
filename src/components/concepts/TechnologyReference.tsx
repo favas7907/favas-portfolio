@@ -23,7 +23,7 @@ export default function TechnologyReference({ technologies }: TechnologyReferenc
             <Link
               key={idx}
               to={`/skills/${techId}`}
-              className="inline-flex px-3 py-1.5 rounded-md bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 hover:text-blue-600 hover:border-blue-200 transition-colors"
+              className="inline-flex px-3 py-1.5 rounded-md bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 hover:text-primary hover:border-primary/20 transition-colors"
             >
               {tech}
             </Link>
